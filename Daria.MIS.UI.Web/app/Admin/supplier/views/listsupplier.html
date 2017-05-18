@@ -1,0 +1,103 @@
+﻿<div class="row">
+    <div class="col-sm-8">
+        <h4 style="padding-left:0em; color:darkblue;font-size:28px;font-style:oblique;margin-top:-8px;">Supplier</h4>
+    </div>
+    <div class="col-sm-2">
+        <a href="#/supplier/add" class="btn btn-primary">Add Supplier &nbsp;<i class="fa fa-plus"></i></a>
+    </div>
+    <!--<div class="col-sm-2">
+        <label class="text-dark text-green text-bold"></label>
+    </div>-->
+    <div class="col-sm-2">
+        <input name="Name" type="text" class="form-control text-pink ui-search-toolbar" placeholder="Supplier Name" ng-model="supplierName" />
+    </div>
+</div>&nbsp;
+
+
+<div class="col-sm-12">
+   
+    <!-- START panel-->
+    <!--<div class="panel panel-default">-->
+
+        <!-- START table-responsive-->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead style="background-color:darkcyan;font-weight:bold;font-size:18px;">
+                    <tr>
+                        <th></th>
+                        <th style="text-align:center;color:white;">Sl.No</th>
+                        <th style="text-align:center;color:white;">Supplier</th>
+                        <th style="text-align:center;color:white;">TinNo</th>
+                        <th style="text-align:center;color:white;">City</th>
+                        <th style="text-align:center;color:white;">MobileNo</th>
+                        <th style="text-align:center;color:white;">IsActive</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color:lavender;font-size:20px;color:navy;">
+                    <tr ng-repeat="supplier in suppliers | filter:supplierName | limitTo:10">
+                        <td>
+                            <a href="#/supplier/edit/{{supplier.Id}}" class="btn btn-labeled btn-purple btn-xs">
+                                <span class="btn-label"><i class="fa fa-edit"></i></span>
+                                <span class="hidden-xs"></span>
+                            </a>
+                            <a ng-click="delete(supplier.Id)" class="btn btn-labeled btn-danger btn-xs">
+                                <span class="btn-label"><i class="fa fa-times"></i></span>
+                                <span class="hidden-xs"></span>
+                            </a>
+                        </td>
+                        <td>{{$index + 1}}</td>
+                        <td>{{supplier.Name}}</td>
+                        <td>{{supplier.TinNo}}</td>
+                        <td>{{supplier.City}}</td>
+                        <td>{{supplier.MobileNo}}</td>
+                        <td><em ng-show="supplier.isActive" class="fa fa-fw fa-check text-success"></em></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- END table-responsive-->
+    </div>
+    <!-- END panel-->
+<!--</div>-->
+
+<div id="confirm-supplier-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-supplier-delete-lable" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 id="myModalLabelSmall" class="modal-title">Confirm Delete</h4>
+            </div>
+            <div class="modal-body">Are you sure, you want to delete this Supplier?</div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                <button type="button" id="delete" class="btn btn-primary btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="help-window" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Help ?</h4>
+            </div>
+            <div class="modal-body">
+                F1 - Help<br />
+                F2 - AddNew<br />
+                F3 - Save<br />
+                F4 - Clear<br />
+                F9 - Exit<br />
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

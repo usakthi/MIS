@@ -1,0 +1,25 @@
+﻿<h1>Edit Drug Unit</h1>
+<div class="row">
+    <div class="col-md-5">
+        <form name="formEditUnit" novalidate ng-submit="edit()">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input name="Name" type="text" class="form-control" ng-required="true" placeholder="Enter Name" ng-model="unit.Name">
+                <span style="color:red" ng-show="formEditUnit.Name.$error.required" oninvalid="true">Please Enter UnitName</span>
+            </div>
+            <div class="form-group">
+                <label for="Desc">Description</label>
+                <input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="unit.Desc">
+            </div>
+            <div class="form-group">
+                <label for="isActive">
+                    Active
+                    <input type="checkbox" name="isActive" ng-model="unit.isActive" />
+                </label>
+            </div>
+            <a href="#/unit" class="btn btn-default">Cancel</a>
+            <button type="submit" ng-disabled="formEditUnit.$invalid" class="btn btn-primary">Save</button>
+        </form>
+
+    </div>
+</div>

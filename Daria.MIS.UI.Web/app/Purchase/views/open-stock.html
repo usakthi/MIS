@@ -1,0 +1,63 @@
+﻿<style type="text/css">
+    .purchase-order-container {
+        font-size: 12px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        padding: 3px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        line-height: 1.29 !important;
+    }
+
+    .editable-error, span.error {
+        color: red !important;
+    }
+
+    div.purchase-order-container .form-control {
+        font-size: 12px !important;
+    }
+
+    span.product-id {
+        display: none !important;
+    }
+
+    .TextBoxAsLabel {
+        border: none;
+        background-color: #fff;
+        border: none !important;
+        background: transparent;
+    }
+
+    .TextBoxSize {
+        width: 100px;
+    }
+</style>
+<h3>Open Stock</h3>
+<div ng-if="dataLoading">
+    <i class="fa fa-spinner"></i>
+</div>
+<div class="purchase-order-container" ng-hide="dataLoading">
+    <form class="form-horizontal" novalidate name="formOpenStock" ng-submit="SaveFile()">
+        <div style="color: red">{{Message}}</div>
+
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" onchange="angular.element(this).scope().selectFileforUpload(this.files)" required />
+            <span style="color:red" ng-show="(formOpenStock.file.$dirty || IsFormSubmitted) && formOpenStock.file.$error.required" oninvalid="true">Please select only excels</span>
+            <span class="error">{{FileInvalidMessage}}</span>
+        </div>
+        <div class="form-group">
+            <label for="Desc">Description</label>
+            <input type="text" name="uFileDescription" ng-model="FileDescription" class="{{(IsFormSubmitted?'ng-dirty' + (formOpenStock.uFileDescription.$invalid?' ng-invalid':''):'')}}" autofocus />
+        </div>
+        <div class="form-group">
+            <a href="#/openstock" class="btn btn-default">Cancel</a>
+            <input type="submit" value="Upload File" />
+        </div>
+
+    </form>
+
+</div>
+

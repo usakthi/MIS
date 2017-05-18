@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B55AC88-563A-47A9-9B06-9C2926C6B7D4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Daria.MIS.UI.Web</RootNamespace>
+    <AssemblyName>Daria.MIS.UI.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FileAlignment>4096</FileAlignment>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.3\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="BCrypt.Net, Version=0.1.4056.18965, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq">
+      <HintPath>..\ExternalLib\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.PdfGenerator">
+      <HintPath>..\packages\NReco.PdfGenerator.1.1.12.0\lib\net20\NReco.PdfGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\Admin\admincontroller.js" />
+    <Content Include="app\Admin\bank\controllers\bankcontroller.js" />
+    <Content Include="app\Admin\bank\views\addbank.html" />
+    <Content Include="app\Admin\bank\views\editbank.html" />
+    <Content Include="app\Admin\bank\views\listbank.html" />
+    <Content Include="app\Admin\creditauth\controllers\creditauthcontroller.js" />
+    <Content Include="app\Admin\creditauth\views\addcreditauth.html" />
+    <Content Include="app\Admin\creditauth\views\editcreditauth.html" />
+    <Content Include="app\Admin\creditauth\views\listcreditauth.html" />
+    <Content Include="app\Admin\consultant\controllers\consultantcontroller.js" />
+    <Content Include="app\Admin\consultant\views\addconsultant.html" />
+    <Content Include="app\Admin\consultant\views\editconsultant.html" />
+    <Content Include="app\Admin\consultant\views\listconsultant.html" />
+    <Content Include="app\Admin\druggeneric\controllers\druggenericcontroller.js" />
+    <Content Include="app\Admin\druggeneric\views\adddruggeneric.html" />
+    <Content Include="app\Admin\druggeneric\views\editdruggeneric.html" />
+    <Content Include="app\Admin\druggeneric\views\listdruggeneric.html" />
+    <Content Include="app\Admin\product\controllers\productcontroller.js" />
+    <Content Include="app\Admin\product\views\addproduct.html" />
+    <Content Include="app\Admin\product\views\editproduct.html" />
+    <Content Include="app\Admin\product\views\listproduct.html" />
+    <Content Include="app\Admin\patient\controllers\patientcontroller.js" />
+    <Content Include="app\Admin\patient\views\addpatient.html" />
+    <Content Include="app\Admin\patient\views\editpatient.html" />
+    <Content Include="app\Admin\patient\views\listpatient.html" />
+    <Content Include="app\Admin\role\controllers\rolecontroller.js" />
+    <Content Include="app\Admin\role\views\addrole.html" />
+    <Content Include="app\Admin\role\views\editrole.html" />
+    <Content Include="app\Admin\role\views\listrole.html" />
+    <Content Include="app\Admin\user\controllers\usercontroller.js" />
+    <Content Include="app\Admin\user\views\adduser.html" />
+    <Content Include="app\Admin\user\views\edituser.html" />
+    <Content Include="app\Admin\user\views\listuser.html" />
+    <Content Include="app\Admin\supplier\controllers\suppliercontroller.js" />
+    <Content Include="app\Admin\supplier\views\addsupplier.html" />
+    <Content Include="app\Admin\supplier\views\editsupplier.html" />
+    <Content Include="app\Admin\supplier\views\listsupplier.html" />
+    <Content Include="app\Admin\tax\controllers\taxcontroller.js" />
+    <Content Include="app\Admin\tax\views\addtax.html" />
+    <Content Include="app\Admin\tax\views\edittax.html" />
+    <Content Include="app\Admin\tax\views\listtax.html" />
+    <Content Include="app\Admin\rack\controllers\rackcontroller.js" />
+    <Content Include="app\Admin\rack\views\addrack.html" />
+    <Content Include="app\Admin\rack\views\editrack.html" />
+    <Content Include="app\Admin\rack\views\listrack.html" />
+    <Content Include="app\Admin\department\controllers\departmentcontroller.js" />
+    <Content Include="app\Admin\department\views\adddepartment.html" />
+    <Content Include="app\Admin\department\views\editdepartment.html" />
+    <Content Include="app\Admin\department\views\listdepartment.html" />
+    <Content Include="app\Admin\drugtype\controllers\drugtypecontroller.js" />
+    <Content Include="app\Admin\drugtype\views\adddrugtype.html" />
+    <Content Include="app\Admin\drugtype\views\editdrugtype.html" />
+    <Content Include="app\Admin\drugtype\views\listdrugtype.html" />
+    <Content Include="app\Admin\content\controllers\contentcontroller.js" />
+    <Content Include="app\Admin\content\views\addcontent.html" />
+    <Content Include="app\Admin\content\views\editcontent.html" />
+    <Content Include="app\Admin\content\views\listcontent.html" />
+    <Content Include="app\Admin\category\controllers\categorycontroller.js" />
+    <Content Include="app\Admin\category\views\addcategory.html" />
+    <Content Include="app\Admin\category\views\editcategory.html" />
+    <Content Include="app\Admin\category\views\listcategory.html" />
+    <Content Include="app\Admin\manf\controllers\manufacturercontroller.js" />
+    <Content Include="app\Admin\manf\views\addmanufacturer.html" />
+    <Content Include="app\Admin\manf\views\editmanufacturer.html" />
+    <Content Include="app\Admin\manf\views\listmanufacturer.html" />
+    <Content Include="app\Admin\adminapp.js" />
+    <Content Include="app\Admin\unit\controllers\unitcontroller.js" />
+    <Content Include="app\Admin\unit\views\addunit.html" />
+    <Content Include="app\Admin\unit\views\editunit.html" />
+    <Content Include="app\Admin\unit\views\listunit.html" />
+    <Content Include="app\Admin\adminServices.js" />
+    <Content Include="app\EditedBill\editedbill-app.js" />
+    <Content Include="app\EditedBill\editedbill-service.js" />
+    <Content Include="app\EditedBill\controllers\editedbill-controller.js" />
+    <Content Include="app\EditedBill\views\editedbill-list.html" />
+    <Content Include="app\EditedBill\views\editedbill-print.html" />
+    <Content Include="app\Bill\views\bill-print.html" />
+    <Content Include="app\InternalTransfer\views\internaltransfer-print.html" />
+    <Content Include="app\Purchase\views\purchase-print.html" />
+    <Content Include="app\DueBills\controllers\duebills-controller.js" />
+    <Content Include="app\DueBills\duebills-app.js" />
+    <Content Include="app\DueBills\duebills-service.js" />
+    <Content Include="app\DueBills\views\duebills-entry.html" />
+    <Content Include="app\DueBills\views\duebills-list.html" />
+    <Content Include="app\SalesReturn\views\salesreturn-print.html" />
+    <Content Include="app\CustomerReceivable\controllers\customerReceivable-controller.js" />
+    <Content Include="app\CustomerReceivable\customerReceivable-app.js" />
+    <Content Include="app\CustomerReceivable\customerReceivable-service.js" />
+    <Content Include="app\CustomerReceivable\views\customerReceivable-entry.html" />
+    <Content Include="app\CustomerReceivable\views\customerReceivable-list.html" />
+    <Content Include="app\SupplierPayable\controllers\supplierpayable-controller.js" />
+    <Content Include="app\SupplierPayable\supplierpayable-app.js" />
+    <Content Include="app\SupplierPayable\supplierpayable-service.js" />
+    <Content Include="app\SupplierPayable\views\supplierpayable-entry.html" />
+    <Content Include="app\SupplierPayable\views\supplierpayable-list.html" />
+    <Content Include="app\Purchase\views\open-stock.html" />
+    <Content Include="app\StockAdjustment\stockadjustment-app.js" />
+    <Content Include="app\StockAdjustment\stockadjustment-service.js" />
+    <Content Include="app\StockAdjustment\controllers\stockadjustment-controller.js" />
+    <Content Include="app\StockAdjustment\views\stockadjustment-entry.html" />
+    <Content Include="app\StockAdjustment\views\stockadjustment-list.html" />
+    <Content Include="app\DepartmentStock\controllers\departmentstock-entry-controller.js" />
+    <Content Include="app\DepartmentStock\departmentstock-app.js" />
+    <Content Include="app\DepartmentStock\departmentstock-service.js" />
+    <Content Include="app\DepartmentStock\views\departmentstock-list.html" />
+    <Content Include="app\SalesReturn\controllers\salesreturn-entry-controller.js" />
+    <Content Include="app\SalesReturn\salesreturn-app.js" />
+    <Content Include="app\SalesReturn\salesreturn-service.js" />
+    <Content Include="app\SalesReturn\views\salesreturn-entry.html" />
+    <Content Include="app\SalesReturn\views\salesreturn-list.html" />
+    <Content Include="app\DepartmentUsage\controllers\departmentusage-entry-controller.js" />
+    <Content Include="app\DepartmentUsage\departmentusage-app.js" />
+    <Content Include="app\DepartmentUsage\departmentusage-service.js" />
+    <Content Include="app\DepartmentUsage\views\departmentusage-entry.html" />
+    <Content Include="app\DepartmentUsage\views\departmentusage-list.html" />
+    <Content Include="app\DepartmentIndent\controllers\departmentindent-entry-controller.js" />
+    <Content Include="app\DepartmentIndent\departmentindent-app.js" />
+    <Content Include="app\DepartmentIndent\departmentindent-service.js" />
+    <Content Include="app\DepartmentIndent\views\departmentindent-entry.html" />
+    <Content Include="app\DepartmentIndent\views\departmentindent-list.html" />
+    <Content Include="app\DepartmentBill\controllers\departmentbill-entry-controller.js" />
+    <Content Include="app\DepartmentBill\departmentbill-app.js" />
+    <Content Include="app\DepartmentBill\departmentbill-service.js" />
+    <Content Include="app\DepartmentBill\views\departmentbill-entry.html" />
+    <Content Include="app\DepartmentBill\views\departmentbill-list.html" />
+    <Content Include="app\IndentReceivable\controllers\indentreceivable-entry-controller.js" />
+    <Content Include="app\IndentReceivable\indentreceivable-app.js" />
+    <Content Include="app\IndentReceivable\indentreceivable-service.js" />
+    <Content Include="app\IndentReceivable\views\indentreceivable-entry.html" />
+    <Content Include="app\IndentReceivable\views\indentreceivable-list.html" />
+    <Content Include="app\IndentBill\indentbill-app.js" />
+    <Content Include="app\IndentBill\indentbill-service.js" />
+    <Content Include="app\IndentBill\controllers\indentbill-entry-controller.js" />
+    <Content Include="app\IndentBill\views\indentbill-entry.html" />
+    <Content Include="app\IndentBill\views\indentbill-list.html" />
+    <Content Include="app\Indent\indent-app.js" />
+    <Content Include="app\Indent\indent-service.js" />
+    <Content Include="app\Indent\controllers\indent-entry-controller.js" />
+    <Content Include="app\Indent\views\indent-entry.html" />
+    <Content Include="app\Indent\views\indent-list.html" />
+    <Content Include="app\InternalTransferReturn\internaltransferreturn-app.js" />
+    <Content Include="app\InternalTransferReturn\internaltransferreturn-service.js" />
+    <Content Include="app\InternalTransferReturn\controllers\internaltransferreturn-entry-controller.js" />
+    <Content Include="app\InternalTransferReturn\views\internaltransferreturn-entry.html" />
+    <Content Include="app\InternalTransferReturn\views\internaltransferreturn-list.html" />
+    <Content Include="app\InternalTransfer\internaltransfer-app.js" />
+    <Content Include="app\InternalTransfer\internaltransfer-service.js" />
+    <Content Include="app\InternalTransfer\controllers\internaltransfer-entry-controller.js" />
+    <Content Include="app\InternalTransfer\views\internaltransfer-entry.html" />
+    <Content Include="app\InternalTransfer\views\internaltransfer-list.html" />
+    <Content Include="app\BillReturn\billreturn-app.js" />
+    <Content Include="app\BillReturn\billreturn-service.js" />
+    <Content Include="app\BillReturn\controllers\billreturn-entry-controller.js" />
+    <Content Include="app\BillReturn\views\billreturn-entry.html" />
+    <Content Include="app\BillReturn\views\billreturn-list.html" />
+    <Content Include="app\Helpers\bootstrap-start.js" />
+    <Content Include="app\Helpers\calendar.js" />
+    <Content Include="app\Helpers\chart.js" />
+    <Content Include="app\Helpers\chartist.js" />
+    <Content Include="app\Helpers\classyloader.js" />
+    <Content Include="app\Helpers\clear-storage.js" />
+    <Content Include="app\Helpers\constants.js" />
+    <Content Include="app\Helpers\flatdoc.js" />
+    <Content Include="app\Helpers\fullscreen.js" />
+    <Content Include="app\Helpers\gmap.js" />
+    <Content Include="app\Helpers\jquery.storageapi.js" />
+    <Content Include="app\Helpers\load-css.js" />
+    <Content Include="app\Helpers\localize.js" />
+    <Content Include="app\Helpers\maps-vector.js" />
+    <Content Include="app\Helpers\morris.js" />
+    <Content Include="app\Helpers\navbar-search.js" />
+    <Content Include="app\Helpers\notify.js" />
+    <Content Include="app\Helpers\now.js" />
+    <Content Include="app\Helpers\panel-tools.js" />
+    <Content Include="app\Helpers\play-animation.js" />
+    <Content Include="app\Helpers\porlets.js" />
+    <Content Include="app\Helpers\rickshaw.js" />
+    <Content Include="app\Helpers\sidebar.js" />
+    <Content Include="app\Helpers\skycons.js" />
+    <Content Include="app\Helpers\slimscroll.js" />
+    <Content Include="app\Helpers\sparkline.js" />
+    <Content Include="app\Helpers\table-checkall.js" />
+    <Content Include="app\Helpers\toggle-state.js" />
+    <Content Include="app\Helpers\utils.js" />
+    <Content Include="app\common.js" />
+    <Content Include="app\Bill\controllers\bill-entry-controller.js" />
+    <Content Include="app\Bill\bill-app.js" />
+    <Content Include="app\Bill\bill-service.js" />
+    <Content Include="app\Bill\views\bill-entry.html" />
+    <Content Include="app\Bill\views\bill-list.html" />
+    <Content Include="app\CurrentStock\controllers\currentstock-entry-controller.js" />
+    <Content Include="app\CurrentStock\currentstock-app.js" />
+    <Content Include="app\CurrentStock\currentstock-service.js" />
+    <Content Include="app\CurrentStock\views\currentstock-list.html" />
+    <Content Include="app\PurchaseReturn\controllers\purchasereturn-entry-controller.js" />
+    <Content Include="app\PurchaseReturn\purchasereturn-app.js" />
+    <Content Include="app\PurchaseReturn\purchasereturn-service.js" />
+    <Content Include="app\PurchaseReturn\views\purchasereturn-entry.html" />
+    <Content Include="app\PurchaseReturn\views\purchasereturn-list.html" />
+    <Content Include="app\Purchase\purchase-service.js" />
+    <Content Include="app\Purchase\controllers\purchase-entry-controller.js" />
+    <Content Include="app\Purchase\purchase-app.js" />
+    <Content Include="app\Purchase\views\purchase-entry.html" />
+    <Content Include="app\Purchase\views\purchase-list.html" />
+    <Content Include="Content\Angle\css\app-rtl.css" />
+    <Content Include="Content\Angle\css\app.css" />
+    <Content Include="Content\Angle\css\theme-a.css" />
+    <Content Include="Content\Angle\css\theme-b.css" />
+    <Content Include="Content\Angle\css\theme-c.css" />
+    <Content Include="Content\Angle\css\theme-d.css" />
+    <Content Include="Content\Angle\css\theme-e.css" />
+    <Content Include="Content\Angle\css\theme-f.css" />
+    <Content Include="Content\Angle\css\theme-g.css" />
+    <Content Include="Content\Angle\css\theme-h.css" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.css" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.js" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.min.css" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.min.js" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.svg" />
+    <Content Include="Content\Angle\Vendor\fontawesome\css\font-awesome.min.css" />
+    <Content Include="Content\Angle\Vendor\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ddd.jpg" />
+    <Content Include="Content\plugin\ivh-treeview.css" />
+    <Content Include="Content\plugin\xeditable.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\1.4.8\angular.min.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Angle\Vendor\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Angle\Vendor\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Angle\Vendor\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Angle\Vendor\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Angle\Vendor\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\hotkeys.min.js" />
+    <Content Include="Scripts\html2canvas.min.js" />
+    <Content Include="Scripts\ivh-treeview.js" />
+    <Content Include="Scripts\jspdf.debug.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.13.1.min.js" />
+    <Content Include="Scripts\xeditable.js" />
+    <Content Include="Scripts\xeditable.min.js" />
+    <Content Include="Views\Master\Index.cshtml" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\bower.json" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\README.md" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.eot" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.ttf" />
+    <Content Include="Content\Angle\Vendor\angular-ui-grid\ui-grid.woff" />
+    <None Include="Properties\PublishProfiles\inv.pubxml" />
+    <None Include="Properties\PublishProfiles\Inventory.pubxml" />
+    <None Include="Properties\PublishProfiles\Mis1.2.pubxml" />
+    <None Include="Properties\PublishProfiles\Mis11.pubxml" />
+    <None Include="Properties\PublishProfiles\MISLocal.pubxml" />
+    <None Include="Properties\PublishProfiles\Pharma.pubxml" />
+    <None Include="Properties\PublishProfiles\Store2.0.pubxml" />
+    <None Include="Properties\PublishProfiles\StoreStore.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Bootstrapper.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\EditedController.cs" />
+    <Compile Include="Controllers\DueBillsController.cs" />
+    <Compile Include="Controllers\CustomerReceivableController.cs" />
+    <Compile Include="Controllers\SupplierPayableController.cs" />
+    <Compile Include="Controllers\StockAdjustmentController.cs" />
+    <Compile Include="Controllers\DepartmentStockController.cs" />
+    <Compile Include="Controllers\SalesReturnController.cs" />
+    <Compile Include="Controllers\DepartmentUsageController.cs" />
+    <Compile Include="Controllers\DepartmentBillController.cs" />
+    <Compile Include="Controllers\DepartmentIndentController.cs" />
+    <Compile Include="Controllers\IndentReceivableController.cs" />
+    <Compile Include="Controllers\IndentBillController.cs" />
+    <Compile Include="Controllers\IndentController.cs" />
+    <Compile Include="Controllers\InternalTransferController.cs" />
+    <Compile Include="Controllers\InternalTransferReturnController.cs" />
+    <Compile Include="Controllers\BillReturnController.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\CurrentStockController.cs" />
+    <Compile Include="Controllers\PurchaseReturnController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Filters\CustomAuthorizationAttribute.cs" />
+    <Compile Include="Filters\ElmahHandleErrorAttribute.cs" />
+    <Compile Include="Filters\MISIdentity.cs" />
+    <Compile Include="Filters\UserMenuFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\WebAppHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\EditedBillViewModel.cs" />
+    <Compile Include="ViewModels\DueBillsViewModel.cs" />
+    <Compile Include="ViewModels\SupplierPayableViewModel - Copy.cs" />
+    <Compile Include="ViewModels\CustomerReceivableViewModel.cs" />
+    <Compile Include="ViewModels\RoleViewModel.cs" />
+    <Compile Include="ViewModels\StockAdjustmentViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentStockViewModel.cs" />
+    <Compile Include="ViewModels\SalesReturnViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentUsageViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentBillViewModel.cs" />
+    <Compile Include="ViewModels\IndentReceivableViewModel.cs" />
+    <Compile Include="ViewModels\IndentBillViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentIndentViewModel.cs" />
+    <Compile Include="ViewModels\IndentViewModel.cs" />
+    <Compile Include="ViewModels\InternalTransferReturnViewModel.cs" />
+    <Compile Include="ViewModels\BillReturnViewModel.cs" />
+    <Compile Include="ViewModels\InternalTransferViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\BillViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseReturnViewModel.cs" />
+    <Compile Include="ViewModels\CurrentStockViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_LayoutHorizontal.cshtml" />
+    <Content Include="Views\Shared\_Offsidebar.cshtml" />
+    <Content Include="Views\Shared\_SideMenuBar.cshtml" />
+    <Content Include="Views\Shared\_TopNavbar.cshtml" />
+    <Content Include="Views\Shared\_TopNavbarHorizontal.cshtml" />
+    <Content Include="Views\Shared\_LayoutNotLoggedIn.cshtml" />
+    <Content Include="Views\Purchase\Index.cshtml" />
+    <Content Include="Views\Bill\Index.cshtml" />
+    <Content Include="Views\BillReturn\Index.cshtml" />
+    <Content Include="Views\PurchaseReturn\Index.cshtml" />
+    <Content Include="Views\InternalTransfer\Index.cshtml" />
+    <Content Include="Views\InternalTransferReturn\Index.cshtml" />
+    <Content Include="Views\Indent\Index.cshtml" />
+    <Content Include="Views\IndentBill\Index.cshtml" />
+    <Content Include="Views\IndentReceivable\Index.cshtml" />
+    <Content Include="Views\CurrentStock\Index.cshtml" />
+    <Content Include="Views\DepartmentIndent\Index.cshtml" />
+    <Content Include="Views\DepartmentBill\Index.cshtml" />
+    <Content Include="Views\DepartmentUsage\Index.cshtml" />
+    <Content Include="Views\DepartmentStock\Index.cshtml" />
+    <Content Include="Views\SalesReturn\Index.cshtml" />
+    <Content Include="Views\StockAdjustment\Index.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Shared\UnAuthorized.cshtml" />
+    <Content Include="Views\SupplierPayable\Index.cshtml" />
+    <Content Include="Views\EditedBill\Index.cshtml" />
+    <Content Include="Views\DueBills\Index.cshtml" />
+    <Content Include="Views\CustomerReceivable\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Daria.MIS.Core\Daria.MIS.Core.csproj">
+      <Project>{9090cc48-035e-4289-8a6e-2694dda184a7}</Project>
+      <Name>Daria.MIS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daria.MIS.Infrastructure\Daria.MIS.Infrastructure.csproj">
+      <Project>{f25a971f-781c-4b62-b6f8-ba3e23ff1806}</Project>
+      <Name>Daria.MIS.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daria.MIS.Utils\Daria.MIS.Utils.csproj">
+      <Project>{651c7220-5628-49de-a266-5fbfb4f2798f}</Project>
+      <Name>Daria.MIS.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54976</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54976/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

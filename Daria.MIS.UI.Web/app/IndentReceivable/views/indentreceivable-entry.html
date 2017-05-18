@@ -1,0 +1,375 @@
+﻿<style type="text/css">
+    .purchase-order-container {
+        font-size: 12px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        padding: 3px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        line-height: 1.29 !important;
+    }
+
+    .editable-error, span.error {
+        color: red !important;
+    }
+
+    div.purchase-order-container  {
+        font-size: 12px !important;
+    }
+
+    span.product-id {
+        display: none !important;
+    }
+
+    .TextBoxAsLabel {
+        border: none;
+        background-color: #fff;
+        border: none !important;
+        background: transparent;
+    }
+             .close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: red;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 1;
+  filter: alpha(opacity=20);
+}
+.close:hover,
+.close:focus {
+  color:red;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1;
+  filter: alpha(opacity=50);
+} 
+</style>
+    <div class="row" style="margin-top:-19px;">
+        <div class="col-sm-4  col-md-4 col-lg-4 "></div>
+        <div class="col-sm-4  col-md-4 col-lg-4 " style=" border: 1px solid; text-align: center; background-color:darkblue;height:40px;">
+
+            <h4 style=" color:white;font-size:28px;text-align:center;margin:2px;">IP Due Receivables</h4>
+
+        </div>
+        <div class="col-sm-4  col-md-4 col-lg-4 "></div>
+
+</div>&nbsp;
+       
+        <div class="col-xs-6 col-md-3">
+            <div class="form-group">
+                <!--<label for="Discount" class="col-lg-5 control-label">Discount: {{purchaseHeader.Discount | number}}</label>-->
+                <!--<h4>Discount</h4>
+                <input name="Discount" type="number" style="width:80px;height:40px" class="form-control" placeholder="" ng-model="purchaseHeader.Discount">-->
+                <!--<h4> Amount</h4>-->
+            
+            </div>
+        </div>
+    
+    
+        <div ng-if="dataLoading">
+            <i class="fa fa-spinner"></i>
+        </div>
+        <div class="purchase-order-container" ng-hide="dataLoading">
+            <form class="form-horizontal" name="formPurchaseHeader" novalidate ng-submit="savePurchase()">
+                <div class="row">
+                   
+                        <div class="form-group" hidden>
+                            <label class="col-lg-5 control-label">Bill No</label>
+                            <div class="col-lg-7">
+                                <span ng-model="purchaseHeader.GrnNo"></span>
+                            </div>
+                        </div>
+                        <div class="form-group" hidden>
+                            <label for="GrnDate" class="col-lg-5 control-label">Bill Date</label>
+                            <div class="col-lg-7">
+                                <p class="input-group">
+                                    <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="purchaseHeader.GrnDate" is-open="openedGRNDatePicker" datepicker-options="dateOptions" close-text="Close"
+                                           class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="button" ng-click="openDatePicker($event,'openedGRNDatePicker')" class="btn btn-default">
+                                            <em class="fa fa-calendar"></em>
+                                        </button>
+                                    </span>
+                                </p>
+
+                            </div>
+                        </div>
+                   
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+                            <input name="Classification" type="radio" ng-model="product.Classification" ng-checked="true" value="Cash" /><label style="font-size:23px;color:black;;margin-top:-10px">Cash </label>
+                            <input name="Classification" type="radio" ng-model="product.Classification" value="Card" /><label style="font-size:23px;color:black;margin-top:-10px">Card</label>
+
+                        </div>
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+                            <input name="PaidAmount" type="number" style="width:100px;height:40px" class="form-control" placeholder="" ng-model="purchaseHeader.PaidAmount">
+
+                        </div>
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+                            <select name="BillCode" class="form-control form-control-rounded" ng-model="purchaseHeader.BillCode" style="color:mediumblue;font-size:17px !important;background-color:azure;">
+                                <option value="">Select Due Patient</option>
+                                <option ng-repeat="due in dues" value="{{due.Id}}">{{due.Name}}</option>
+                            </select>
+                        </div>
+                       
+                        <div class="col-sm-2  col-md-2 col-lg-2 "></div>
+                        <div class="col-sm-1  col-md-1 col-lg-1">
+
+                            <button type="submit" ng-disabled="formPurchaseHeader.$invalid" class="btn btn_save ">Save</button>
+                        </div>
+                    </div>&nbsp;
+                    <div class="row">
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+                         
+                            <div class="input-group">
+                                <label class="input-group-addon ">Customer</label>
+                                <input for="PatientName" type="text" class="form-control" value="{{purchaseHeader.Customer}}">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+                    
+                            <div class="input-group">
+                                <label for="IPNo" class="input-group-addon "> IPNo / RegNo</label>
+                                <input type="text" class="form-control" value="{{purchaseHeader.IPNo}}">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-5  col-md-5 col-lg-5"></div>
+                        <div class="col-sm-1  col-md-1 col-lg-1">
+                            <button type="submit" class="btn btn-primary btn-lg wd-wide" ng-click="SetAmount()" style="font-size:large;"> Fill</button>
+
+                        </div>
+
+                    </div>&nbsp;
+                    <div class="row">
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+                         
+
+                            <div class="input-group">
+                                <label for="TotalAmount" class="input-group-addon ">Total Amount</label>
+                                <input type="text" class="form-control" value="{{purchaseHeader.TotalAmount | number}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+
+
+                            <div class="input-group">
+                                <label for="NetAmount" class="input-group-addon ">Total Paid</label>
+                                <input type="text" class="form-control" value="{{purchaseHeader.NetAmount | number}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-3  col-md-3 col-lg-3 ">
+                          
+
+                            <div class="input-group">
+                                <label for="Balance" class="input-group-addon ">Balance</label>
+                                <input type="number" class="form-control" value="{{purchaseHeader.Balance | number}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-2  col-md-2 col-lg-2 "></div>
+                        <div class="col-sm-1  col-md-1 col-lg-1 ">
+                            <a href="#/" class="btn btn_exit">Exit</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                           
+                    
+                      
+                   
+                  
+               
+            </form>
+
+            <div class="row" style="overflow:auto">
+
+                <div class="purchase-entry-data" style="margin-top:5px">
+                    <table class="table table-bordered table-hover table-condensed purchase-entry">
+                        <thead>
+                            <tr style="background-color:maroon;font-weight:bold;font-size:18px;">
+                                 <th></th>
+                                 <th style="text-align:center;color:white;">SlNo</th>
+                                 <th style="text-align:center;color:white;">BillNo</th>
+                                <th class="hidden"></th>
+                                 <th style="text-align:center;color:white;">BillDate</th>
+                                 <th style="text-align:center;color:white;">Amount</th>
+                                 <th style="text-align:center;color:white;">Paid</th>
+                                 <th style="text-align:center;color:white;">Payable</th>
+                                 <th style="text-align:center;color:white;">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody style="background-color:burlywood;font-size:20px;color:navy;">
+                            <tr ng-repeat="order in purchaseOrders">
+
+                                <td style="white-space: nowrap">
+                                    <!-- form -->
+                                    <form editable-form name="rowform" onaftersave="savePurchaseItem($data, order.Id, rowform, $index)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == order">
+                                        <button type="submit" ng-disabled="rowform.$waiting" class="btn" style="background-color:burlywood;color:black;">
+                                            <em class=" fa fa-save">
+                                            </em>
+                                        </button>
+                                        <button type="button" ng-disabled="rowform.$waiting" ng-click="cancelProduct(order,rowform)" class="btn" style="background-color:burlywood;color:black;">
+                                            <em class=" fa fa-times">
+                                            </em>
+                                        </button>
+                                    </form>
+                                    <div class="buttons" ng-show="!rowform.$visible">
+                                        <button class="btn " ng-click="rowform.$show()" style="background-color:burlywood;color:black;><em class=" fa fa-edit"></em></button>
+                                        <button class="btn " ng-click="removeProduct(order)" style="background-color:burlywood;color:black;><em class=" fa fa-trash"></em></button>
+                                    </div>
+                                </td>
+
+                                <td>{{$index + 1}}</td>
+                                <td>
+                                    <span ng-model="rowform.$data.BillNo" e-name="BillNo" e-style="width:60px" e-form="rowform">
+                                        {{ order.BillNo }}
+                                    </span>
+                                </td>
+                                <td class="hidden">
+                                    <span editable-number="order.BillCode" e-ng-show="false" e-name="BillCode" e-class="ng-hide product-id" e-form="rowform">
+                                        {{ order.BillCode }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span ng-model="rowform.$data.BillDate" e-name="BillDate" e-style="width:60px" e-form="rowform">
+                                        {{ order.BillDate }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span ng-model="rowform.$data.NetAmount" e-name="NetAmount" e-form="rowform">
+                                        {{  order.NetAmount }}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span ng-model="rowform.$data.PaidAmount" e-name="PaidAmount" e-style="width:50px" e-form="rowform">
+                                        {{ order.PaidAmount }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span editable-number="order.Payable" e-style="width:50px" e-min="1" e-step="1" e-name="Payable" e-form="rowform">
+                                        {{ order.Payable}}
+                                    </span>
+                                </td>
+
+                                <td hidden>
+                                    <span editable-number="order.Balance" e-style="width:50px" e-min="1" e-step="1" e-name="Balance" e-form="rowform">
+                                        {{ order.TotalMRP}}
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span ng-model="rowform.$data.TotalMRP" ng-show="rowform.$visible" e-name="TotalMRP" e-style="width:60px" e-form="rowform">
+                                        {{ calculateBalacne(rowform.$data) }}
+                                    </span>
+                                    <span ng-model="rowform.$data.TotalMRP" ng-hide="rowform.$visible" e-name="TotalMRP" e-style="width:60px" e-form="rowform">
+                                        {{ order.Balance || number }}
+                                    </span>
+                                </td>
+
+                            </tr>
+                            </tbody>
+</table>
+                </div>
+            </div>
+
+        </div>
+        <div id="show-purchase-login" tabindex="-1" role="dialog" aria-labelledby="show-purchase-login-lable" aria-hidden="true" class="modal fade">
+            <!--<div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 id="myModalLabelSmall" class="modal-title">Authorize</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="UserName" class="col-lg-5 control-label">User Name</label>
+                                    <div class="col-lg-7">
+                                        <input name="UserName" type="text" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.UserName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="Password" class="col-lg-5 control-label">Password</label>
+                                    <div class="col-lg-7">
+                                        <input name="Password" type="password" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.Password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                        <button type="button" id="authorize" class="btn btn-primary btn-success">
+                            Authorize
+                            <span class="btn-label" ng-show="validatingCredentials">
+                                <i class="fa fa-spinner"></i>
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>-->
+
+            <div style="background-color:rgba(0,0,0,0.45);opacity:1;width:100%;margin:3%;height:600px;position:absolute">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content" style="margin-top:50%;margin-left:-18%;margin-right:-2%;">
+                        <div class="modal-header">
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                                <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                            </button>
+                            <h4 id="myModalLabelSmall" class="modal-title" style="text-align:center;font-weight:bold;font-size:xx-large;color:magenta;">Authorize</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="UserName" class="col-lg-5 control-label">User Name</label>
+                                        <div class="col-lg-7">
+                                            <input name="UserName" type="text" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.UserName">
+                                        </div>
+                                    </div>
+                                </div>&nbsp;
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="Password" class="col-lg-5 control-label">Password</label>
+                                        <div class="col-lg-7">
+                                            <input name="Password" type="password" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.Password">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-xs-3"></div>
+                            <div class="col-xs-6">
+                                <button type="button" data-dismiss="modal" class="btn btn_exit">No</button>
+                                <button type="button" id="authorize" class="btn btn-primary btn_save">
+                                    Yes
+                                    <span class="btn-label" ng-show="validatingCredentials">
+                                        <i class="fa fa-spinner"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="col-xs-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,53 @@
+﻿
+<h3>Add Customer</h3>
+<div class="row">
+    <form name="formAddCustomer" novalidate ng-submit="add()">
+        <div class="col-sm-6 col-md-4">
+
+            <div class="form-group">
+                <label for="CustomerName">Customer</label>
+                <input name="CustomerName" type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control text-uppercase" placeholder="Customer" ng-model="customer.CustomerName" ng-required="true" required>
+                <span style="color:red" ng-show="formAddCustomer.CustomerName.$error.required" oninvalid="true">Please Enter Customer</span>
+            </div>
+
+            <div class="form-group">
+                <label for="isActive">
+                    Active
+                    <input type="checkbox" name="isActive" ng-model="customer.isActive" />
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input name="Age" type="text" class="form-control" placeholder="Enter Age" ng-model="customer.Age">
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Gender</label>
+                <input name="Gender" type="text" class="form-control" placeholder="Enter Gender" ng-model="customer.Gender">
+            </div>
+            <div class="form-group">
+                <label for="Mobile">Mobile</label>
+                <input name="Mobile" type="text" class="form-control" placeholder="Enter Mobile" ng-model="customer.Mobile">
+            </div>
+
+
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+                <label for="Type">Type</label>
+                <input name="Type" type="text" class="form-control" placeholder="Enter Type" ng-model="customer.Type">
+            </div>
+
+            <div class="form-group">
+                <label for="Location">Location</label>
+                <input name="Location" type="text" class="form-control" placeholder="Enter Location" ng-model="customer.Location">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <a href="#/patient" class="btn btn-default">Exit</a>
+            <button type="submit" ng-disabled="formAddCustomer.$invalid" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

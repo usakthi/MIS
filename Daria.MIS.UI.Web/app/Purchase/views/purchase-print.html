@@ -1,0 +1,145 @@
+﻿<style type="text/css">
+    .btn{
+        margin: 5px;
+    }
+    .invoice th, .invoice td{
+        padding: 5px;
+    }
+    .supplier th, .supplier td{
+        padding: 5px;
+    }
+    .purchase-header{
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+    #printContent th {
+        vertical-align: top;
+    }
+</style>
+
+<div class="purchase-print">
+    <div ng-hide="convertedPdf">
+        <div id="printContent" style="padding:0px 0px; background:white;">
+            <div class="purchase-header" style="margin-bottom:0px">
+            <div class="pull-left supplier">
+                <table border="0" id="headerdetails">
+                    <!--<tr>
+                        <td>Supplier : </td>
+                        <td>{{ getSupplierName(purchaseHeader.SupplierId) }}</td>
+                        <td>Tinno : </td>
+                        <td>{{ purchaseHeader.TinNo }}</td>
+                    </tr>
+                    <tr>
+                        <td>Invoice No : </td>
+                        <td>{{ purchaseHeader.SupplierInvNo }}</td>
+                        <td>Invoice Date : </td>
+                        <td>{{ dateToLocalDateString(purchaseHeader.SupplierInvDate) }}</td>
+                    </tr>-->
+                </table>
+            </div>
+        </div>
+        <br />
+
+            <table ng-hide="dataLoading" border="1" class="table" style="border:solid;border-width:2px">
+                <thead style="border-bottom:solid;border-width:2px">
+                    <tr>
+                        <td colspan="15" style="padding:0px 0px 0px 0px">
+                            <table border="0" style="padding:0px 0px 0px 0px">
+                                <tr>
+                                    <td colspan="7" style="width:0px;padding:0px 0px 0px 8px">Supplier : {{ getSupplierName(purchaseHeader.SupplierId) }}</td>
+                                    <td colspan="8" style="width:0px;padding:0px 0px 0px 8px">Tinno : {{ purchaseHeader.TinNo }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7" style="width:0px;padding:0px 0px 0px 8px">Invoice No : {{ purchaseHeader.SupplierInvNo }}</td>
+                                    <td colspan="8" style="width:0px;padding:0px 0px 0px 8px">Invoice Date : {{ dateToLocalDateString(purchaseHeader.SupplierInvDate) }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="15" style="padding:0px 0px 0px 0px">
+                                        <hr style="border:solid;border-width:2px;margin:0px 0px 0px 0px" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:8px;font-size:medium;padding:0px 0px 0px 8px">S#</td>
+                                    <td style="width:150px;font-size:medium;padding:0px 0px 0px 8px">DrugName</td>
+                                    <td style="width:70px;font-size:medium;padding:0px 0px 0px 8px">BatchNo</td>
+                                    <td style="width:70px;font-size:medium;padding:0px 0px 0px 8px">MFG</td>
+                                    <td style="width:20px;font-size:medium;padding:0px 0px 0px 8px">Pk</td>
+                                    <td style="width:30px;font-size:medium;padding:0px 0px 0px 8px">Qty</td>
+                                    <td style="width:20px;font-size:medium;padding:0px 0px 0px 8px">Fr</td>
+                                    <td style="width:50px;font-size:medium;padding:0px 0px 0px 8px">Exp</td>
+                                    <td style="width:50px;font-size:medium;padding:0px 0px 0px 8px">Cost</td>
+                                    <td style="width:50px;font-size:medium;padding:0px 0px 0px 8px">MRP</td>
+                                    <td style="width:50px;font-size:medium;padding:0px 0px 0px 8px">Vat%</td>
+                                    <td style="width:30px;font-size:medium;padding:0px 0px 0px 8px">Vat</td>
+                                    <td style="width:50px;font-size:medium;padding:0px 0px 0px 8px">Disc</td>
+                                    <td style="width:80px;font-size:medium;padding:0px 0px 0px 8px">NetCost</td>
+                                    <td style="width:80px;font-size:medium;padding:0px 0px 0px 8px">NetMRP</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="order in purchaseOrders">
+                        <td style="width:8px;padding:0px 0px 0px 8px">{{ $index + 1 }}</td>
+                        <td style="width:150px;padding:0px 0px 0px 8px">{{ order.ProductName }}</td>
+                        <td style="width:70px;padding:0px 0px 0px 8px">{{ order.BatchNo || '' }}</td>
+                        <td style="width:70px;padding:0px 0px 0px 8px">{{ order.ManufacturerName }}</td>
+                        <td style="width:20px;padding:0px 0px 0px 8px">{{ order.Packing || 1 }}</td>
+                        <td style="width:30px;padding:0px 0px 0px 8px">{{ order.Qty || 1 }}</td>
+                        <td style="width:20px;padding:0px 0px 0px 8px">{{ order.FreeQty || 0 }}</td>
+                        <td style="width:50px;padding:0px 0px 0px 8px">{{ order.ExpiryDate || '' }}</td>
+                        <td style="width:50px;padding:0px 0px 0px 8px">{{ order.CostPrice || number }}</td>
+                        <td style="width:50px;padding:0px 0px 0px 8px">{{ order.MRP || number }}</td>
+                        <td style="width:40px;padding:0px 0px 0px 8px">{{ showSelectedVAT(order) }}</td>
+                        <td style="width:40px;padding:0px 0px 0px 8px">{{ order.VATAmount || number }}</td>
+                        <td style="width:50px;padding:0px 0px 0px 8px">{{ order.TotalDiscountAmount || number }}</td>
+                        <td style="width:80px;padding:0px 0px 0px 8px">{{ order.TotalCostPrice || number }}</td>
+                        <td style="width:80px;padding:0px 0px 0px 8px">{{ order.TotalMRP || number }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="15" style="padding:0px 0px 0px 0px">
+                            <hr style="border-bottom:solid;border-width:2px;margin:0px 0px 0px 0px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{calculateGrandTotal("VATAmount")}}</td>
+                        <td>{{calculateGrandTotal("TotalDiscountAmount")}}</td>
+                        <td>{{calculateGrandTotal("TotalCostPrice")}}</td>
+                        <td>{{calculateGrandTotal("TotalMRP")}}</td>
+
+                    </tr>
+                </tfoot>
+            </table>
+            <br />
+
+            <div style="text-align:center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default" ng-click="closeForm()">Cancel</button>
+                    <button type="button" class="btn btn-primary" ng-click="printForm();closeForm()">Print</button>
+                </div>
+            </div>
+</div>
+
+    <div ng-show="convertedPdf">
+        <center>
+            <button type="button" class="btn btn-default" ng-click="closeForm()">Close</button>
+            <div id="pdfWraper">
+
+            </div>
+        </center>
+    </div>
+</div>

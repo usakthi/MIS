@@ -1,0 +1,82 @@
+﻿
+<h3>Add Supplier</h3>
+<div class="row">
+    <form name="formAddSupplier" novalidate ng-submit="add()">
+        <div class="col-sm-6 col-md-4">
+
+            <div class="form-group">
+                <label for="Name">SupplierName</label>
+                <input name="Name" type="text" ng-pattern="/^[a-zA-Z\s]*$/" class="form-control text-uppercase" placeholder="Supplier" ng-model="supplier.Name" ng-required="true" required>
+                <span style="color:red" ng-show="formAddSupplier.Name.$error.required" oninvalid="true">Please Enter Supplier Name</span>
+            </div>
+            <div class="form-group" hidden>
+                <label for="TypeId">Type</label>
+                <select name="TypeId" class="form-control form-control-rounded text-uppercase" ng-model="supplier.TypeId" ng-required="false" required>
+                    <option ng-repeat="type in Types" value="{{type.Id}}">{{type.Name}}</option>
+                </select>
+                <span style="color:red" ng-show="formAddSupplier.TypeId.$error.required" oninvalid="true">Please Select Supplier Type</span>
+            </div>
+            <div class="form-group">
+                <label for="TinNo">TinNo</label>
+                <input name="TinNo" type="text" class="form-control" placeholder="Enter TinNo" ng-model="supplier.TinNo">
+            </div>
+            <div class="form-group">
+                <label for="isActive">
+                    Active
+                    <input type="checkbox" name="isActive" ng-model="supplier.isActive" />
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+                <label for="ContactPerson">Contact_Person</label>
+                <input name="ContactPerson" type="text" class="form-control" placeholder="Enter ContactPerson" ng-model="supplier.ContactPerson">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email_Id</label>
+                <input name="Email" type="email" class="form-control" placeholder="Enter Email" ng-model="supplier.Email">
+            </div>
+            <div class="form-group">
+                <label for="Phone">Phone</label>
+                <input name="Phone" type="number" class="form-control" placeholder="Enter Phone" ng-model="supplier.Phone">
+            </div>
+            <div class="form-group">
+                <label for="Fax">Fax</label>
+                <input name="Fax" type="number" class="form-control" placeholder="Enter Fax" ng-model="supplier.Fax">
+            </div>
+
+            <div class="form-group">
+                <label for="MobileNo">Mobile</label>
+                <input name="MobileNo" type="number" class="form-control" placeholder="Enter MobileNo" ng-model="supplier.MobileNo">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+                <label for="Address">Address</label>
+                <input name="Address" type="text" class="form-control" placeholder="Enter Address" ng-model="supplier.Address">
+            </div>
+
+            <div class="form-group">
+                <label for="City">City</label>
+                <input name="City" type="text" class="form-control" placeholder="Enter City" ng-model="supplier.City">
+            </div>
+            <div class="form-group">
+                <label for="State">State</label>
+                <input name="State" type="text" class="form-control" placeholder="Enter State" ng-model="supplier.State">
+            </div>
+            <div class="form-group">
+                <label for="Country">Country</label>
+                <input name="Country" type="text" class="form-control" placeholder="Enter Country" ng-model="supplier.Country">
+            </div>
+            <div class="form-group">
+                <label for="Pincode">Pincode</label>
+                <input name="Pincode" type="number" class="form-control" placeholder="Enter Pincode" ng-model="supplier.Pincode">
+            </div>
+        </div>
+        <div class="col-sm-12">
+           
+            <a href="#/supplier" class="btn btn-default">Cancel</a>
+            <button type="submit" ng-disabled="formAddSupplier.$invalid" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

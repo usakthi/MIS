@@ -1,0 +1,25 @@
+﻿<h1>Edit Content</h1>
+<div class="row">
+    <div class="col-md-5">
+        <form name="formEditContent" novalidate ng-submit="edit()">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input name="Name" type="text" class="form-control" ng-required="true" placeholder="Enter Name" ng-model="cont.Name">
+                <span style="color:red" ng-show="formEditContent.Name.$error.required" oninvalid="true">Please Enter Drug ContentName</span>
+            </div>
+            <div class="form-group">
+                <label for="Desc">Description</label>
+                <input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="cont.Desc">
+            </div>
+            <div class="form-group">
+                <label for="isActive">
+                    Active
+                    <input type="checkbox" name="isActive" ng-model="cont.isActive" />
+                </label>
+            </div>
+            <a href="#/content" class="btn btn-default">Cancel</a>
+            <button type="submit" ng-disabled="formEditContent.$invalid" class="btn btn-primary">Save</button>
+        </form>
+
+    </div>
+</div>

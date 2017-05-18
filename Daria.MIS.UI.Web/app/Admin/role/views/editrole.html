@@ -1,0 +1,24 @@
+﻿
+<link rel="stylesheet" href="/content/plugin/ivh-treeview.css">
+<h3>Role Detail</h3>
+<div class="row">
+    <div class="col-md-5">
+        <form name="formEditRole" novalidate ng-submit="edit()">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input name="Name" type="text" class="form-control" ng-required="true" placeholder="Enter Name" ng-model="RoleViewModel.Role.RoleName" required>
+                <span style="color:red" ng-show="formEditRole.Name.$error.required" oninvalid="true">Please Enter Role</span>
+            </div>
+            <div class="form-group">
+                <label for="Desc">Description</label>
+                <input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="RoleViewModel.Role.Description">
+            </div>
+
+            <a href="#/role" class="btn btn-default">Cancel</a>
+            <button type="submit" ng-disabled="formEditRole.$invalid" class="btn btn-primary">Save</button>
+        </form><br />
+        <div ivh-treeview="RoleViewModel.TreeData" ivh-treeview-expand-to-depth="-1" class="col-sm-12">
+        </div>
+    </div>
+</div>
+

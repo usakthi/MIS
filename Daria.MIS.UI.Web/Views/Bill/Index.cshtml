@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="@Styles.Url("~/content/plugin/xeditable.css")" rel="stylesheet" type="text/css" />
+<link href="@Styles.Url("~/content/angle/vendor/angular-ui-grid/ui-grid.min.css")" rel="stylesheet" type="text/css" />
+}
+<div ng-view ng-app="billApp" class="content-wrapper">
+</div>
+
+
+@section Scripts {
+    <script src="@Scripts.Url("~/scripts/ui-bootstrap-tpls-0.13.1.min.js")" type="text/javascript"></script>
+    <script src="@Scripts.Url("~/scripts/xeditable.min.js")" type="text/javascript"></script>
+    <script src="@Scripts.Url("~/scripts/hotkeys.min.js")" type="text/javascript"></script>
+<script src="@Scripts.Url("~/content/angle/vendor/angular-ui-grid/ui-grid.min.js")" type="text/javascript"></script>
+<script src="@Scripts.Url("~/scripts/html2canvas.min.js")" type="text/javascript"></script>
+<script src="@Scripts.Url("~/scripts/jspdf.debug.js")" type="text/javascript"></script>
+
+    @Scripts.Render("~/bundles/bill")
+
+    <script type="text/javascript">
+    var purchApp = angular.module('billApp');
+    purchApp.value('ConsultantList', @Html.Raw(Json.Encode(ViewBag.Consultants)));
+    purchApp.value('PatientList', @Html.Raw(Json.Encode(ViewBag.Patients)));
+    purchApp.value('ManufacturerList', @Html.Raw(Json.Encode(ViewBag.Manufacturers)));
+    purchApp.value('CustomerList', @Html.Raw(Json.Encode(ViewBag.Customers)));
+    purchApp.value('IndentList', @Html.Raw(Json.Encode(ViewBag.Indents)));
+    purchApp.value('PharmacyIdEnc', '@Html.Raw(ViewBag.PharmacyIdEnc)');
+
+
+
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿<!--<div class="col-lg-14">-->
+    <!--<p>
+        <table>
+            <tr>
+                <td style="width:50%">
+                    
+                </td>
+                <td  style="padding-left:5px;width:500px;">
+                        <input name="Name" type="text"  class="form-control form-control-rounded dataTables_length text-pink text-bold text-uppercase" placeholder="Drug Name" ng-model="drugName" />
+                    </td>
+            </tr>
+        </table>
+    </p>-->
+    <!-- START panel-->
+    <form class="form-horizontal" name="formProductHeader" novalidate ng-submit="search()">
+      
+           
+                
+        <div class="form-group">
+            <div class="row" style="padding-left:30px">
+                <div class="col-sm-1">
+                    <label class=" control-label">DrugName:</label>
+                </div>
+                    <div class="col-sm-3">
+                        <input type="text" ng-model="product.DrugName" class="form-control" />
+                    </div>
+                <div class="col-sm-1">
+                    <label for="GrnDate" class=" control-label">Type</label>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" ng-model="product.Type" class="form-control" />
+                </div>
+                <div class="col-sm-2">
+                    <a href="#/product/add" class="btn btn-primary">Add New Product</a>
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+
+                </div>
+        </div>
+
+    </form>
+
+    <div ui-grid="gridOptions" ui-grid-pagination class="grid"></div>
+    <!-- END panel-->
+    <!--</div>-->
+
+<div id="confirm-product-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-product-delete-lable" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 id="myModalLabelSmall" class="modal-title">Confirm Delete</h4>
+            </div>
+            <div class="modal-body">Are you sure, you want to delete this Product?</div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                <button type="button" id="delete" class="btn btn-primary btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

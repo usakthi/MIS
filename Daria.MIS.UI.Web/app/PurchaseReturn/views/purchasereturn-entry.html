@@ -1,0 +1,558 @@
+﻿<style type="text/css">
+    .purchase-order-container {
+        font-size: 12px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        padding: 3px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        line-height: 1.29 !important;
+    }
+
+    .editable-error, span.error {
+        color: red !important;
+    }
+
+    div.purchase-order-container  {
+        font-size: 12px !important;
+    }
+
+    span.product-id {
+        display: none !important;
+    }
+
+    .TextBoxAsLabel {
+        border: none;
+        background-color: #fff;
+        border: none !important;
+        background: transparent;
+    }
+    .dropdown-menu {
+        max-height: 160px;
+        overflow: auto;
+    }
+             .close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: red;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 1;
+  filter: alpha(opacity=20);
+}
+.close:hover,
+.close:focus {
+  color:red;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1;
+  filter: alpha(opacity=50);
+} 
+</style>
+<div class="row" style="margin-top:-19px;">
+
+    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style=" border: 1px solid; text-align: center; background-color:darkblue;height:40px;">
+        <h4 style=" color:white;font-size:28px;text-align:center;margin:2px;">Purchase Return</h4>
+    </div>
+
+
+    <div class="col-sm-4 col-md-4 col-lg-4"></div>
+
+</div>&nbsp;
+  
+    <div ng-if="dataLoading">
+        <i class="fa fa-spinner"></i>
+    </div>
+    <div class="purchase-order-container" ng-hide="dataLoading">
+        <form class="form-horizontal" name="formPurchaseHeader" novalidate ng-submit="savePurchase()">
+            <div class="row">
+
+                <div class="form-group" hidden>
+                    <label class=" control-label" style="font-size:21px;color:black;font-style:normal;">Return</label>
+                    <div class="col-lg-7">
+                        <span ng-model="purchaseHeader.GrnNo"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+
+                        <div class="input-group">
+                            <label for="GrnDate" class="input-group-addon ">Return</label>
+                            <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="purchaseHeader.GrnDate" is-open="openedGRNDatePicker" datepicker-options="dateOptions" close-text="Close"
+                                   class="form-control"  />
+                            <span class="input-group-btn">
+                                <button type="button" ng-click="openDatePicker($event,'openedGRNDatePicker')" class="btn btn-default">
+                                    <em class="fa fa-calendar"></em>
+                                </button>
+                            </span>
+                        </div>
+                        <!--<div class="row">
+            <div class="col-sm-5">
+                <label for="GrnDate" class=" control-label" style="font-size:20px;color:black;font-style:normal;margin-top:-10px;">Return </label>
+            </div>
+            <div class="col-sm-7">
+                <p class="input-group">
+                    <input type="text" datepicker-popup="dd/MM/yyyy" ng-model="purchaseHeader.GrnDate" is-open="openedGRNDatePicker" datepicker-options="dateOptions" close-text="Close"
+                           class="form-control" style="color:mediumblue;font-size:17px !important;background-color:azure;padding:0px;" />
+                    <span class="input-group-btn">
+                        <button type="button" ng-click="openDatePicker($event,'openedGRNDatePicker')" class="btn btn-default">
+                            <em class="fa fa-calendar"></em>
+                        </button>
+                    </span>
+                </p>
+            </div>
+
+
+
+        </div>-->
+                    </div>
+
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+
+                        <div class="input-group">
+                            <label for="SupplierId" class="input-group-addon ">Supplier</label>
+                            <select name="SupplierId" class="form-control form-control-rounded" ng-required="true" required ng-model="purchaseHeader.SupplierId" style="color:mediumblue;font-size:17px !important;background-color:azure;">
+                                <option value="">Select Supplier</option>
+                                <option ng-repeat="sup in suppliers" value="{{sup.Id}}">{{sup.Name}}</option>
+                            </select>
+                        </div>
+                        <span style="color:red;font-size:15px;" ng-show="formPurchaseHeader.SupplierId.$error.required" oninvalid="true">Please select supplier</span>
+                      
+
+                    </div>
+
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+
+                        <div class="input-group">
+                            <label for="SupplierInvNo" class="input-group-addon ">Invoice</label>
+                            <select name="SupplierInvNo" class="form-control form-control-rounded" ng-required="true" required ng-model="purchaseHeader.SupplierInvNo" style="color:mediumblue;font-size:17px !important;background-color:azure;padding:0px;">
+                                <option value="">Select InvNo</option>
+                                <option ng-repeat="order in invoiceDetails" value="{{order.Id}}">{{order.Name}}</option>
+                            </select>
+                        </div>
+                        <span style="color:red;font-size:15px;" ng-show="formPurchaseHeader.SupplierInvNo.$error.required" oninvalid="true">Please select InvNo</span>
+
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1">
+                        <a href="#/" class="btn btn_exit ">Exit</a>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                        <div class="col-sm-1 col-md-1 col-lg-1">
+                            <button type="submit" ng-disabled="formPurchaseHeader.$invalid" class="btn btn_save ">Save</button>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <div class="input-group">
+                            <label class="input-group-addon ">Total Amount</label>
+                            <input type="number" class="form-control" value="{{purchaseHeader.NetAmount | number}}">
+                        </div>
+                    
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <div class="input-group">
+                            <label class="input-group-addon ">Total VAT</label>
+                            <input type="number" class="form-control" value="{{purchaseHeader.TotalVatAmount | number}}">
+                        </div>
+                   
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <div class="input-group">
+                            <label for="TotalDiscount" class="input-group-addon ">Inv No</label>
+                            <input type="text" class="form-control" value="{{purchaseHeader.SupplierInvNo}}">
+                        </div>
+         
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1"></div>
+                  
+                </div>
+
+            </div>
+            <!--<div class="form-group" hidden>
+                <label for="DiscountPercent" class="col-lg-5 control-label">Disc%</label>
+                <div class="col-lg-7">
+                    <input name="DiscountPercent" type="number" step="any" min="0" class="form-control" placeholder="" ng-model="purchaseHeader.DiscountPercent">
+                    <span class="error" ng-show="formPurchaseHeader.DiscountPercent.$error.number">
+                        Not valid number!
+                    </span>
+                </div>
+            </div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-12 col-md-3">
+                <div class="form-group">
+                    <div class="col-lg-7">
+                        <p class="input-group">
+                            <span>{{purchaseHeader.SupplierInvDate}}</span>
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>-->
+            <!--</div>-->
+        </form>
+
+        <div class="row" style="overflow:auto">
+            <div class="purchase-entry-data" style="margin-top:5px">
+                <table class="table table-bordered table-hover table-condensed purchase-entry">
+                    <thead>
+                        <tr style="background-color:maroon;font-weight:bold;font-size:18px;">
+                            <th></th>
+                            <th style="text-align:center;color:white;">SNo</th>
+                            <th style="text-align:center;color:white;">Drug Name</th>
+                            <th class="hidden"></th>
+                            <th style="text-align:center;color:white;">Qty</th>
+                            <th style="text-align:center;color:white;">PurQty</th>
+                            <th style="text-align:center;color:white;">Stock</th>
+                            <th style="text-align:center;color:white;">BatchNo</th>
+                            <th style="text-align:center;color:white;">Mfg</th>
+                            <th class="hidden"></th>
+                            <th style="text-align:center;color:white;">Pack</th>
+                            <th style="text-align:center;color:white;">Expiry</th>
+                            <th style="text-align:center;color:white;">AstQty</th>
+                            <th style="text-align:center;color:white;">Cost</th>
+                            <th style="text-align:center;color:white;">Total Cost</th>
+                            <th style="text-align:center;color:white;">MRP</th>
+                            <th style="text-align:center;color:white;">Total MRP</th>
+                            <th style="text-align:center;color:white;">Tax Mode</th>
+                            <th style="text-align:center;color:white;">Tax Type</th>
+                            <th style="text-align:center;color:white;">VAT%</th>
+                            <th style="text-align:center;color:white;">VAT Amt</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color:burlywood;font-size:20px;color:navy;">
+                        <tr ng-repeat="order in purchaseOrders">
+
+                            <td style="white-space: nowrap">
+                                <!-- form -->
+                                <form editable-form name="rowform" onaftersave="savePurchaseItem($data, order.Id, rowform, $index)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == order">
+                                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-md btn-primary" >
+                                        <em class="fa fa-save"></em>
+                                    </button>
+                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="cancelProduct(order,rowform)" class="btn btn-md btn-danger">
+                                        <em class="fa fa-times"></em>
+                                    </button>
+                                </form>
+                                <div class="buttons" ng-show="!rowform.$visible">
+                                    <button class="btn btn-md btn-primary" ng-click="rowform.$show()"><em class="fa fa-edit"></em></button>
+                                    <button class="btn btn-md btn-danger" ng-click="removeProduct(order)"><em class="fa fa-trash"></em></button>
+                                </div>
+                            </td>
+                            <td>{{$index + 1}} </td>
+                            <td>
+                                <span editable-text="order.ProductName" e-name="ProductName" e-form="rowform" e-class="product-typeahead" e-required
+                                      e-typeahead="prod.aa for prod in productList($viewValue) | filter:$viewValue"
+                                      e-typeahead-on-select='onProductSelect($item, $model, $label, rowform, order)' onbeforesave="checkProductName($data, rowform)">
+                                    {{ showProductName(order) }}
+                                </span>
+
+                            </td>
+                            <td hidden>
+                                <span editable-number="order.ProductId" e-name="ProductId" e-form="rowform">
+                                    {{ order.ProductId || 0 }}
+                                </span>
+                            </td>
+                            <td>
+                                <span editable-number="order.Qty" e-style="width:50px" e-min="1" e-step="1" e-name="Qty" e-ng-blur="checkNewProductRow($data, order.Id, rowform, $index)" e-form="rowform">
+                                    {{ order.Qty || 1 }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.PurStk" e-name="PurStk" e-form="rowform">
+                                    {{ order.PurStk }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span editable-text="order.Stock" e-name="Stock" e-style="width:60px" e-form="rowform">
+                                    {{ order.Stock || number }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.Stock" e-name="Stock" e-form="rowform">
+                                    {{ order.Stock }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.BatchNo" e-name="BatchNo" e-form="rowform">
+                                    {{ order.BatchNo }}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span ng-model="rowform.$data.Manufacturer" e-name="Manufacturer" e-form="rowform">
+                                    {{  order.Manufacturer }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span editable-number="order.ManufacturerId" e-name="ManufacturerId" e-form="rowform">
+                                    {{ order.ManufacturerId }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.Packing" e-name="Packing" e-form="rowform">
+                                    {{ order.Packing }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span e-min="1" e-step="1" editable-number="order.Packing" e-name="Packing" e-style="width:50px" e-form="rowform">
+                                    {{ order.Packing || 1 }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.ExpDate" e-name="ExpDate" e-style="width:50px" e-form="rowform">
+                                    {{ order.ExpDate }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.AssortedQty" ng-show="rowform.$visible" e-name="AssortedQty" style="width:60px" e-form="rowform">
+                                    {{ calculateAssortedQty(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.AssortedQty" ng-hide="rowform.$visible" e-name="AssortedQty" e-style="width:60px" e-form="rowform">
+                                    {{ order.AssortedQty || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span e-step="any" e-min="0" editable-number="order.CostPrice" e-name="CostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ order.CostPrice || number }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.CostPrice" e-name="CostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ order.CostPrice }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span ng-model="rowform.$data.AssortedCostPrice" ng-show="rowform.$visible" e-name="AssortedCostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ calculateAssortedCostPrice(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.AssortedCostPrice" ng-hide="rowform.$visible" e-name="AssortedCostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ order.AssortedCostPrice || number }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.TotalCostPrice" ng-show="rowform.$visible" e-name="TotalCostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ calculateTotalCostPrice(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.TotalCostPrice" ng-hide="rowform.$visible" e-name="TotalCostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ order.TotalCostPrice || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span ng-model="rowform.$data.NetCostPrice" ng-show="rowform.$visible" e-name="NetCostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ calculateNetCostPrice(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.NetCostPrice" ng-hide="rowform.$visible" e-name="NetCostPrice" e-style="width:60px" e-form="rowform">
+                                    {{ order.NetCostPrice || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span e-step="any" e-min="0" editable-number="order.MRP" e-name="MRP" e-style="width:60px" e-form="rowform">
+                                    {{ order.MRP || number }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.MRP" e-name="MRP" e-style="width:60px" e-form="rowform">
+                                    {{ order.MRP }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span ng-model="rowform.$data.AssortedMRPPrice" ng-show="rowform.$visible" e-name="AssortedMRPPrice" e-style="width:60px" e-form="rowform">
+                                    {{ calculateAssortedMRPPrice(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.AssortedMRPPrice" ng-hide="rowform.$visible" e-name="AssortedMRPPrice" e-style="width:60px" e-form="rowform">
+                                    {{ order.AssortedMRPPrice || number }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.TotalMRP" ng-show="rowform.$visible" e-name="TotalMRP" e-style="width:60px" e-form="rowform">
+                                    {{ calculateTotalMRP(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.TotalMRP" ng-hide="rowform.$visible" e-name="TotalMRP" e-style="width:60px" e-form="rowform">
+                                    {{ order.TotalMRP || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span ng-model="rowform.$data.AbatedMRP" ng-show="rowform.$visible" style="width:60px" e-name="AbatedMRP" e-style="width:60px" e-form="rowform">
+                                    {{ calculateAbatedMRP(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.AbatedMRP" ng-hide="rowform.$visible" e-name="AbatedMRP" e-style="width:60px" e-form="rowform">
+                                    {{ order.AbatedMRP || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span ng-model="rowform.$data.NetMRP" ng-show="rowform.$visible" style="width:60px" e-name="NetMRP" e-style="width:60px" e-form="rowform">
+                                    {{ calculateNetMRP(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.NetMRP" ng-hide="rowform.$visible" e-name="NetMRP" e-style="width:60px" e-form="rowform">
+                                    {{ order.NetMRP || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span editable-select="order.TaxMode" e-name="TaxMode" e-form="rowform" e-ng-options="tm.value as tm.text for tm in taxModes">
+                                    {{ showSelectedTaxMode(rowform) }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.TaxMode" e-name="TaxMode" e-form="rowform" e-style="width:40px">
+                                    {{ order.TaxMode }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span editable-select="order.TaxType" e-name="TaxType" e-form="rowform" e-ng-options="tt.value as tt.text for tt in taxTypes">
+                                    {{ showSelectedTaxType(order) }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.TaxType" e-name="TaxType" e-form="rowform" e-style="width:40px">
+                                    {{ order.TaxType }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span editable-number="order.VAT" e-name="VAT" e-form="rowform" e-style="width:40px">
+                                    {{ order.VAT }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.VAT" e-name="VAT" e-form="rowform" e-style="width:60px">
+                                    {{ order.VAT }}
+                                </span>
+                            </td>
+                            <td>
+                                <span ng-model="rowform.$data.VATAmount" ng-show="rowform.$visible" e-name="VATAmount" e-style="width:60px" e-form="rowform">
+                                    {{ calculateVATAmount(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.VATAmount" ng-hide="rowform.$visible" e-name="VATAmount" e-style="width:60px" e-form="rowform">
+                                    {{ order.VATAmount || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span e-step="any" e-min="0" editable-number="order.DiscountPercentage" e-name="DiscountPercentage" e-style="width:40px" e-form="rowform">
+                                    {{ order.DiscountPercentage || '' }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span ng-model="rowform.$data.DiscountAmount" ng-show="rowform.$visible" e-name="DiscountAmount" e-style="width:60px" e-form="rowform">
+                                    {{ calculateDiscountAmount(rowform.$data) }}
+                                </span>
+                                <span ng-model="rowform.$data.DiscountAmount" ng-hide="rowform.$visible" e-name="DiscountAmount" e-style="width:60px" e-form="rowform">
+                                    {{ order.DiscountAmount || number }}
+                                </span>
+                            </td>
+                            <td hidden>
+                                <span ng-model="rowform.$data.PurDetId" e-name="PurDetId" e-form="rowform">
+                                    {{ order.PurDetId }}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+            <button class="btn btn-md btn-primary" ng-click="addNewProduct()" style="font-size:large;">Add row</button>
+        </div>
+    </div>
+
+    <div id="show-purchase-login" tabindex="-1" role="dialog" aria-labelledby="show-purchase-login-lable" aria-hidden="true" class="modal fade">
+        <!--<div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 id="myModalLabelSmall" class="modal-title">Authorize</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="UserName" class=" control-label">User Name</label>
+                                <div class="col-lg-7">
+                                    <input name="UserName" type="text" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.UserName">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="Password" class=" control-label">Password</label>
+                                <div class="col-lg-7">
+                                    <input name="Password" type="password" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.Password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                    <button type="button" id="authorize" class="btn btn-primary btn-success">
+                        Authorize
+                        <span class="btn-label" ng-show="validatingCredentials">
+                            <i class="fa fa-spinner"></i>
+                        </span>
+                    </button>
+
+                </div>
+            </div>
+        </div>-->
+
+        <div style="background-color:rgba(0,0,0,0.45);opacity:1;width:100%;margin:3%;height:600px;position:absolute">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" style="margin-top:50%;margin-left:-18%;margin-right:-2%;">
+                    <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                            <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                        </button>
+                        <h4 id="myModalLabelSmall" class="modal-title" style="text-align:center;font-weight:bold;font-size:xx-large;color:magenta;">Authorize</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="UserName" class="col-lg-5 control-label">User Name</label>
+                                    <div class="col-lg-7">
+                                        <input name="UserName" type="text" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.UserName">
+                                    </div>
+                                </div>
+                            </div>&nbsp;
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="Password" class="col-lg-5 control-label">Password</label>
+                                    <div class="col-lg-7">
+                                        <input name="Password" type="password" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.Password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-6">
+                            <button type="button" data-dismiss="modal" class="btn btn_exit">No</button>
+                            <button type="button" id="authorize" class="btn btn-primary btn_save">
+                                Yes
+                                <span class="btn-label" ng-show="validatingCredentials">
+                                    <i class="fa fa-spinner"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-xs-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,25 @@
+﻿<h1>Edit Drug Generic</h1>
+<div class="row">
+    <div class="col-md-5">
+        <form name="formEditDrugGeneric" novalidate ng-submit="edit()">
+            <div class="form-group">
+                <label for="Name">Drug GenericName</label>
+                <input name="Name" type="text" class="form-control" ng-required="true" required placeholder="Enter Drug GenericName" ng-model="druggeneric.Name">
+                <span style="color:red" ng-show="formEditDrugGeneric.Name.$error.required" oninvalid="true">Please Enter Drug GenericName</span>
+            </div>
+            <div class="form-group">
+                <label for="Desc">Description</label>
+                <input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="druggeneric.Desc">
+            </div>
+            <div class="form-group">
+                <label for="isActive">
+                    Active
+                    <input type="checkbox" name="isActive" ng-model="druggeneric.isActive" />
+                </label>
+            </div>
+            <a href="#/druggeneric" class="btn btn-default">Cancel</a>
+            <button type="submit" ng-disabled="formEditDrugGeneric.$invalid" class="btn btn-primary">Save</button>
+        </form>
+
+    </div>
+</div>

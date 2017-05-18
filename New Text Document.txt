@@ -1,0 +1,84 @@
+WITH StockRow
+AS (
+	SELECT SYMBOL
+		,CLOSE_PRICE
+		,OPEN_PRICE
+		,DATE1
+		,TTL_TRD_QNTY
+		,DELIV_QTY
+		,PREV_CLOSE
+		,ROW_NUMBER() OVER (
+			PARTITION BY SYMBOL ORDER BY DATE1
+			) rn
+	FROM DailyData
+	WHERE CLOSE_PRICE > OPEN_PRICE
+		AND CLOSE_PRICE > PREV_CLOSE AND DATE1='2015-10-28 00:00:00'
+	)
+	,RunGroup
+AS (
+	SELECT Base.SYMBOL
+		,Base.DATE1
+		,Base.OPEN_PRICE
+		,Base.CLOSE_PRICE
+		,Base.TTL_TRD_QNTY
+		,Base.DELIV_QTY
+		,Base.rn AS Rn
+		,Base.PREV_CLOSE
+		,previous.rn AS RSRN
+		,previous.TTL_TRD_QNTY As PrevVolume
+		,Base.TTL_TRD_QNTY - previous.TTL_TRD_QNTY as VolDiff
+		,MAX(previous.rn) OVER (
+			PARTITION BY Base.SYMBOL ORDER BY Base.DATE1
+			) groupingId
+	FROM StockRow Base
+	LEFT JOIN StockRow previous ON previous.SYMBOL = Base.SYMBOL
+		AND previous.rn = Base.rn - 1
+		AND previous.CLOSE_PRICE > Base.CLOSE_PRICE
+	)
+SELECT SYMBOL
+	,SUM(TTL_TRD_QNTY) TotalVolume
+	,SUM(DELIV_QTY) AS TotalDeliveredVolume
+	,COUNT(*) AS consecutiveCount
+	,MIN(DATE1) AS startDate
+	,MAX(DATE1) AS endDate
+	,MAX(RSRN) AS RSRNMax
+	,VolDiff
+	
+INTO #Temp
+FROM RunGroup
+GROUP BY SYMBOL
+	,groupingId
+	,RSRN,VolDiff
+HAVING COUNT(*) = 1
+	AND RSRN IS NULL
+ORDER BY SYMBOL
+
+SELECT T.SYMBOL
+	,T.consecutiveCount AS No_Of_Days
+	,cast(t.TotalVolume AS INT) AS TotalVolume
+	,cast(t.TotalDeliveredVolume AS INT) AS TotalDeliveredVolume
+	,cast(100 * TotalDeliveredVolume/TotalVolume AS decimal(10,2)) As TotalDeliveryPercentage
+	,cast(100 * (D.CLOSE_PRICE-D.PREV_CLOSE)/D.PREV_CLOSE AS decimal(10,2)) As QuoteChange
+	,cast(D.TTL_TRD_QNTY AS INT) AS TodayVolume
+	,TTL_TRD_QNTY
+	,CLOSE_PRICE
+	,OPEN_PRICE
+	,HIGH_PRICE
+	,d.DELIV_PER
+	,T.VolDiff
+	,d.TURNOVER_LACS
+
+INTO #AllData	
+	
+FROM #Temp T
+INNER JOIN DailyData D ON D.DATE1 = T.endDate
+	AND D.SYMBOL = T.SYMBOL
+--order by TotalDeliveryPercentage desc
+
+
+
+DROP TABLE #Temp
+
+select * from  #AllData	where QuoteChange between 2 and 6 and DELIV_PER>50 and TURNOVER_LACS>100
+
+DROP TABLE #AllData

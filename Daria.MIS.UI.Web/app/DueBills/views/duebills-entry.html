@@ -1,0 +1,219 @@
+﻿
+<style type="text/css">
+    .purchase-order-container {
+        font-size: 12px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        padding: 3px !important;
+    }
+
+    table.purchase-entry > tbody > tr > td {
+        line-height: 1.29 !important;
+    }
+
+    .editable-error, span.error {
+        color: red !important;
+    }
+
+    div.purchase-order-container .form-control {
+        font-size: 12px !important;
+    }
+
+    span.product-id {
+        display: none !important;
+    }
+
+    .TextBoxAsLabel {
+        border: none;
+        background-color: #fff;
+        border: none !important;
+        background: transparent;
+    }
+
+    .label {
+        color: red;
+        font-size: 14px !important;
+    }
+             .close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: red;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 1;
+  filter: alpha(opacity=20);
+}
+.close:hover,
+.close:focus {
+  color:red;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 1;
+  filter: alpha(opacity=50);
+} 
+</style>
+<div ng-if="dataLoading">
+    <i class="fa fa-spinner"></i>
+</div>
+<div class="purchase-order-container" ng-hide="dataLoading">
+    <form class="form-horizontal" name="formStockAdjustmentHeader" novalidate ng-submit="saveStockAdjustment()">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-0">
+                <h4>Due Receivables</h4>
+            </div>
+            <div class="col-md-2 col-md-offset-7">
+                <a href="#/" class="btn btn-default">Exit</a>
+                <button type="submit" ng-disabled="formStockAdjustmentHeader.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <div class="form-group">
+                    <div class="col-lg-7">
+                        Bill No: <input type="text" ng-model="purchaseHeader.BillNo" class="form-control" ng-change="sshow()" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="form-group">
+                    <div class="col-lg-7">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <div class="form-group">
+                    <div class="col-lg-7">
+                        Receivable Amount: <input type="text" ng-model="purchaseHeader.DuePaidAmount" class="form-control" ng-change="getbalance()" ng-pattern="/^0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*$/" />
+                        Due Amount: <label for="DueAmount" ng-if="purchaseHeader.DueAmount" class="label col-lg-5 control-label">{{purchaseHeader.DueAmount}} </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                Customer: <label for="PatientName" ng-if="purchaseHeader.PatientName" class="label col-lg-5 control-label">{{purchaseHeader.PatientName}} </label><br />
+                BillNo: <label for="BillNumber" ng-if="purchaseHeader.BillNumber" class="label col-lg-5 control-label">{{purchaseHeader.BillNumber}} </label><br />
+                BillDate: <label for="BillDt" ng-if="purchaseHeader.BillDt" class="label col-lg-5 control-label">{{purchaseHeader.BillDt}} </label><br />
+                Consultant: <label for="Consultant" ng-if="purchaseHeader.Consultant" class="label col-lg-5 control-label">{{purchaseHeader.Consultant}} </label>
+            </div>
+
+            <div class="col-xs-12 col-md-3">
+                Total Amount: <label for="TotalAmount" ng-if="purchaseHeader.TotalAmount" class="label col-lg-5 control-label">{{purchaseHeader.TotalAmount || 0 }} </label><br />
+                Discount: <label for="Discount" ng-if="purchaseHeader.Discount" class="label col-lg-5 control-label">{{purchaseHeader.Discount || 0 }} </label><br />
+                NetAmount: <label for="NetAmount" ng-if="purchaseHeader.NetAmount" class="label col-lg-5 control-label">{{purchaseHeader.NetAmount || 0 }} </label><br />
+                PaidAmount: <label for="PaidAmount" ng-if="purchaseHeader.PaidAmount" class="label col-lg-5 control-label">{{purchaseHeader.PaidAmount || 0 }} </label><br />
+                Balance: <label for="Balance" ng-if="purchaseHeader.Balance" class="label col-lg-5 control-label">{{purchaseHeader.Balance || 0 }} </label>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <input id="cash" name="PayMode" type="radio" ng-model="purchaseHeader.PayMode" ng-checked="true" value="Cash" />Cash<br />
+                <input id="card" name="PayMode" type="radio" ng-model="purchaseHeader.PayMode" value="Card" />Card <br />
+                <input id="cheque" name="PayMode" type="radio" ng-model="purchaseHeader.PayMode" value="Cheque" />Cheque
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <br />
+                <br />
+                <br />
+                <button type="submit" ng-disabled="formStockAdjustmentHeader.$invalid" class="btn btn-primary">Details</button>
+            </div>
+        </div>
+
+        <hr />
+
+    </form>
+
+</div>
+<div id="show-purchase-login" tabindex="-1" role="dialog" aria-labelledby="show-purchase-login-lable" aria-hidden="true" class="modal fade">
+    <!--<div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 id="myModalLabelSmall" class="modal-title">Authorize</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="UserName" class="col-lg-5 control-label">User Name</label>
+                            <div class="col-lg-7">
+                                <input name="UserName" type="text" class="form-control" ng-required="true" required ng-model="stockadjustmentHeader.SavedUser.UserName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="Password" class="col-lg-5 control-label">Password</label>
+                            <div class="col-lg-7">
+                                <input name="Password" type="password" class="form-control" ng-required="true" required ng-model="stockadjustmentHeader.SavedUser.Password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                <button type="button" id="authorize" class="btn btn-primary btn-success">
+                    Authorize
+                    <span class="btn-label" ng-show="validatingCredentials">
+                        <i class="fa fa-spinner"></i>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </div>-->
+
+    <div style="background-color:rgba(0,0,0,0.45);opacity:1;width:100%;margin:3%;height:600px;position:absolute">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" style="margin-top:50%;margin-left:-18%;margin-right:-2%;">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </button>
+                    <h4 id="myModalLabelSmall" class="modal-title" style="text-align:center;font-weight:bold;font-size:xx-large;color:magenta;">Authorize</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="UserName" class="col-lg-5 control-label">User Name</label>
+                                <div class="col-lg-7">
+                                    <input name="UserName" type="text" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.UserName">
+                                </div>
+                            </div>
+                        </div>&nbsp;
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="Password" class="col-lg-5 control-label">Password</label>
+                                <div class="col-lg-7">
+                                    <input name="Password" type="password" class="form-control" ng-required="true" required ng-model="purchaseHeader.SavedUser.Password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-6">
+                        <button type="button" data-dismiss="modal" class="btn btn_exit">No</button>
+                        <button type="button" id="authorize" class="btn btn-primary btn_save">
+                            Yes
+                            <span class="btn-label" ng-show="validatingCredentials">
+                                <i class="fa fa-spinner"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

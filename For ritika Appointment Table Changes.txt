@@ -1,0 +1,247 @@
+CREATE PROC [dbo].[AddReason]
+(
+@deptid INT,
+@reason VARCHAR(50)
+)
+AS 
+
+BEGIN
+
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+
+SET NOCOUNT ON
+
+BEGIN TRY
+
+INSERT INTO dbo.Reason 
+(
+deptId, 
+[reason]
+)
+VALUES 
+(
+@deptid, 
+@reason
+)
+
+SELECT SCOPE_IDENTITY()
+END TRY
+
+BEGIN CATCH
+	
+	DECLARE @ErrorMessage NVARCHAR(4000), @ErrorProc NVARCHAR(126), @ErrorLineNo INT;
+
+	SELECT @ErrorLineNo = ERROR_LINE(), @ErrorMessage = ERROR_MESSAGE(), @ErrorProc = ERROR_PROCEDURE();
+
+	RAISERROR ( 'Error %s occurred in %s. Line  %d', 16, 1, @ErrorMessage, @ErrorProc, @ErrorLineNo )
+	
+	WITH SETERROR;
+	
+END CATCH
+
+END 
+
+GO
+
+
+ALTER TABLE OP_APPOINTMENTS ADD reason_id TINYINT
+
+-- 1.
+ALTER TABLE CONSULTANT_SLOT_MSTR ALTER COLUMN CSM_SLOT_ROWID SMALLINT
+ 
+-- 2.
+ IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_OP_APPOINTMENTS_CONSULTANT_SLOT_MSTR]') AND parent_object_id = OBJECT_ID(N'[dbo].[OP_APPOINTMENTS]'))
+  ALTER TABLE [dbo].[OP_APPOINTMENTS] DROP CONSTRAINT [FK_OP_APPOINTMENTS_CONSULTANT_SLOT_MSTR]
+  GO
+
+-- 3.
+ALTER TABLE OP_APPOINTMENTS ALTER COLUMN OA_CSM_SLOT_CODE SMALLINT
+
+-- 4.
+ALTER TABLE CONSULTANT_SLOT_MSTR DROP CONSTRAINT PK_CONSULTANT_SLOT_MSTR
+
+-- 5.
+ALTER TABLE CONSULTANT_SLOT_MSTR ALTER COLUMN CSM_SLOT_CODE SMALLINT
+
+-- 6.
+ALTER TABLE CONSULTANT_SLOT_MSTR ADD CONSTRAINT PK_CONSULTANT_SLOT_MSTR PRIMARY KEY (CSM_SLOT_CODE)
+
+-- 7.
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_CONSULTANT_SLOT_MSTR_CONSULTANT_MSTR]') AND parent_object_id = OBJECT_ID(N'[dbo].[CONSULTANT_SLOT_MSTR]'))
+  ALTER TABLE [dbo].[CONSULTANT_SLOT_MSTR] DROP CONSTRAINT [FK_CONSULTANT_SLOT_MSTR_CONSULTANT_MSTR]
+  GO
+
+-- 8.
+ALTER TABLE CONSULTANT_SLOT_MSTR ALTER COLUMN CSM_CON_CODE SMALLINT 
+
+-- 9.
+ALTER TABLE [dbo].[OP_APPOINTMENTS]  WITH CHECK ADD  
+  CONSTRAINT [FK_OP_APPOINTMENTS_CONSULTANT_SLOT_MSTR] FOREIGN KEY([OA_CSM_SLOT_CODE])
+  REFERENCES [dbo].[CONSULTANT_SLOT_MSTR] ([CSM_SLOT_CODE])
+  
+-- 10
+ALTER TABLE OP_APPOINTMENTS ALTER COLUMN OA_FROM_TIME BIGINT
+
+-- 11
+CREATE TABLE dbo.Reason
+	(
+	reasonId TINYINT IDENTITY NOT NULL,
+	deptId   INT,
+	reason   VARCHAR (50),
+	CONSTRAINT PK_Reason PRIMARY KEY (reasonId)
+	)
+GO
+
+-- 12
+
+CREATE PROC GetReason
+@deptId INT
+AS 
+
+BEGIN 
+
+SET NOCOUNT ON
+
+
+SELECT reasonId as reason_code, [reason] FROM Reason 
+WHERE deptId = @deptId
+UNION ALL
+Select 0 , 'Other' 
+
+END 
+GO
+
+-- 13
+
+ALTER TABLE CONSULTANT_SLOT_MSTR ALTER COLUMN CSM_DAY TINYINT
+
+-- 14
+
+
+ALTER TABLE USER_RIGHTS_MSTR ADD URM_ACTIVE BIT 
+SELECT * FROM USER_RIGHTS_MSTR WHERE URM_ADD_RIGHT = 1
+
+CREATE PROCEDURE GetUserAccessRights
+@LoginName VARCHAR(30) 
+
+AS
+BEGIN 
+
+SELECT [MM_CODE]
+      ,convert(varchar,[MM_PRIORITY]) + '_' + [MM_MENU_NAME] + '_' + isnull([MM_ICON_CLASS],'') AS [MM_MENU_NAME]
+      ,[SMM_CODE]
+      ,convert(varchar,[SMM_PRIORITY]) + '_' + [SMM_SUB_MENU_NAME] AS [SMM_SUB_MENU_NAME]
+      ,[F_CODE]
+      ,convert(varchar,[F_SEQUENCE]) + '_' + [F_NAME] AS [F_NAME]
+      ,[F_URLName]
+      ,[MM_ICON_CLASS]
+      ,[MM_PRIORITY]
+      ,[SMM_PRIORITY]
+      ,[F_SEQUENCE]
+      ,[URM_U_ID]
+      ,[URM_U_LOGIN_ID]
+      ,[URM_ADD_RIGHT]
+      ,[URM_EDIT_RIGHT]
+      ,[URM_VIEW_RIGHT]
+  FROM [dbo].[MENU_MSTR] AS M
+  INNER JOIN [dbo].[SUB_MENU_MSTR] AS S ON S.SMM_MM_CODE = M.MM_CODE
+  INNER JOIN [dbo].[FUNCTION_MSTR] AS F ON F.F_SMM_CODE = S.SMM_CODE
+  INNER JOIN [dbo].[USER_RIGHTS_MSTR] AS UR ON UR.URM_F_CODE = F.F_CODE
+  Where [F_ACTIVE] = 1 AND UR.URM_U_LOGIN_ID = @LoginName AND UR.URM_ACTIVE = 1
+ORDER BY [MM_PRIORITY],[SMM_PRIORITY],[F_SEQUENCE]
+
+END
+GO
+
+CREATE PROC UpdateThemesettings
+@Property VARCHAR(50),
+@Value VARCHAR(50),
+@LoginName VARCHAR(20)
+AS
+BEGIN 
+
+DECLARE @Exists VARCHAR(50) SET @Exists = (SELECT Id FROM ThemeSettings WHERE Loginname = @LoginName)
+
+-- DECLARE @Exist VARCHAR(50) SET @Exist = (SELECT count(property) FROM ThemeSettings WHERE Loginname = @LoginName AND Property = @Property)
+
+IF @Property = 'default'
+BEGIN 
+
+INSERT INTO dbo.ThemeSettings (headerSkin, sidebarskin, headerState, sidebarState, sidebarAlign, breadcrumbState, breadcrumbHidden, loginName)
+VALUES ('', 'sidebar-default', 'navbar-fixed-top', 'affix', '', 'relative', 'visible', @LoginName)
+
+END 
+
+ELSE 
+BEGIN 
+
+IF @Property = 'headerSkin'
+BEGIN 
+	UPDATE dbo.ThemeSettings SET headerSkin = @Value WHERE Id = @Exists
+END 
+
+ELSE IF @Property = 'sidebarskin'
+BEGIN 
+UPDATE dbo.ThemeSettings SET sidebarskin = @Value WHERE Id = @Exists
+END 
+
+ELSE IF @Property = 'headerState'
+BEGIN 
+UPDATE dbo.ThemeSettings SET headerState = @Value WHERE Id = @Exists
+END 
+
+ELSE IF @Property = 'sidebarState'
+BEGIN 
+UPDATE dbo.ThemeSettings SET sidebarState = @Value WHERE Id = @Exists
+END 
+
+ELSE IF @Property = 'sidebarAlign'
+BEGIN 
+UPDATE dbo.ThemeSettings SET sidebarAlign = @Value WHERE Id = @Exists
+END 
+
+ELSE IF @Property = 'breadcrumbState'
+BEGIN  
+UPDATE dbo.ThemeSettings SET breadcrumbState = @Value WHERE Id = @Exists
+END 
+
+ELSE
+BEGIN 
+UPDATE dbo.ThemeSettings SET breadcrumbHidden = @Value WHERE Id = @Exists
+END 
+
+END 
+
+END
+GO
+
+CREATE PROCEDURE GetThemeSetting
+@UserName VARCHAR(20)
+AS
+
+BEGIN 
+
+SELECT 
+headerSkin, sidebarSkin, headerState, sidebarState, sidebarAlign, breadcrumbState, breadcrumbHidden
+FROM ThemeSettings 
+WHERE loginName = @UserName
+
+END
+GO
+
+CREATE TABLE dbo.ThemeSettings
+	(
+	id               BIGINT IDENTITY NOT NULL,
+	headerSkin       NVARCHAR (20),
+	sidebarSkin      NVARCHAR (20),
+	headerState      NVARCHAR (20),
+	sidebarState     NVARCHAR (20),
+	sidebarAlign     NVARCHAR (20),
+	breadcrumbState  NVARCHAR (20),
+	breadcrumbHidden NVARCHAR (20),
+	loginName        NVARCHAR (20)
+	)
+GO
+
+
+

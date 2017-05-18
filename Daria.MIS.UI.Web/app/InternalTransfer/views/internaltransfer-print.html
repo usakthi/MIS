@@ -1,0 +1,104 @@
+﻿<style type="text/css">
+   .page {
+page-break-after:always;
+position:relative;
+}
+</style>
+<div class="col-lg-6">
+    <div class="purchase-order-container" ng-hide="dataLoading">
+        <!-- START panel-->
+        <!--<div class="panel panel-default">-->
+            <!-- START table-responsive-->
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td style="width:250px">BillNo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{purchaseHeader.BillNo}}</td>
+                    <td style="width:250px">Customer&nbsp;: {{purchaseHeader.Customer}} </td>
+                    <td style="width:250px"> VAT TIN No. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29080044394 </td>
+                </tr>
+                <tr>
+                    <td style="width:275px">BillDate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{purchaseHeader.BillDate}}</td>
+                    <td style="width:275px">PatientNo: {{purchaseHeader.IPNo}}</td>
+                    <td style="width:275px">Drug Licence Nos. KA/BNG/IV/20/544</td>
+                </tr>
+                <tr>
+                    <td style="width:275px">Consultant:&nbsp;Dr.{{purchaseHeader.ConsultantName}}</td>
+                    <td style="width:275px"><center><u><b>Transfer Bill</b></u></center></td>
+                    <td style="width:275px;padding-left:107px">KA/BNG/IV/21/544</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+            <div class="table-responsive">
+                <table border="0">
+                    <thead style="border-bottom:solid;border-width:thin">
+                        <tr>
+                            <th>S.No</th>
+                            <th>DrugName</th>
+                            <th>BatchNo</th>
+                            <th>Mfg</th>
+                            <th>Expiry</th>
+                            <th>Qty</th>
+                            <th>Cost</th>
+                            <th>Total</th>
+                            <th>VAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="order in purchaseOrders">
+                            <td style="width:50px">{{$index + 1}}</td>
+                            <td style="width:200px">{{order.ProductName }}</td>
+                            <td style="width:100px">{{order.BatchNo}}</td>
+                            <td style="width:100px">{{order.Manufacturer}}</td>
+                            <td style="width:80px">{{order.ExpDate}}</td>
+                            <td style="width:60px">{{order.Qty}}</td>
+                            <td style="width:80px">{{order.CostPrice}}</td>
+                            <td style="width:100px">{{order.TotalCostPrice}}</td>
+                            <td style="width:40px">{{order.VAT}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        <br />
+        <div class="page">
+            <table border="0">
+                <tbody>
+                    <tr>
+                        <td style="width:290px">User Name : {{purchaseHeader.AddedUserName}}</td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Total Amount:</td>
+                        <td style="width:140px">  {{purchaseHeader.TotalAmount | number}}</td>
+                    <tr>
+                    <!--<tr>
+                        <td style="width:290px"></td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Discount:</td>
+                        <td style="width:140px">  {{purchaseHeader.RoundOff | number}}</td> 
+                    </tr>
+                    <tr>
+                        <td style="width:290px"></td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Net Amount:</td>
+                        <td style="width:140px">  {{purchaseHeader.NetAmount | number}}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:290px"></td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Paid Amount:</td>
+                        <td style="width:140px">  {{purchaseHeader.PaidAmount | number}}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:290px"></td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Balance:</td>
+                        <td style="width:140px">  {{purchaseHeader.Balance | number}}</td>
+                    </tr>-->
+                </tbody>
+            </table>
+         </div>
+            <!-- END table-responsive-->
+            <!--</div>-->
+            <!-- END panel-->
+        </div>
+</div>
+

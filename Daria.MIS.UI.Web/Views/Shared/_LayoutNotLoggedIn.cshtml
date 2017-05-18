@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="MIS">
+    <title></title>
+    <!-- =============== VENDOR STYLES ===============-->
+    @Styles.Render("~/bundles/fontawesome")
+    <!-- =============== PAGE VENDOR STYLES =============== -->
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+    <!-- =============== APP STYLES ===============-->
+    <link href="@Styles.Url("~/Content/angle/css/app.css")" rel="stylesheet" type="text/css" id="maincss" />
+
+</head>
+<body>
+    <div class="wrapper">
+
+
+        <!-- Page content-->
+        @RenderBody()
+
+
+        <!-- Page footer-->
+
+    </div>
+    @if (IsSectionDefined("BodyArea"))
+    {@RenderSection("BodyArea", required: false)}
+    <!-- =============== VENDOR SCRIPTS ===============-->
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    @RenderSection("scripts", required: false)
+    <!-- =============== APP SCRIPTS ===============-->
+
+</body>
+</html>

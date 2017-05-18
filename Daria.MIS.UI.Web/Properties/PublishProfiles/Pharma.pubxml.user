@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Spider Hosting\Pharma</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="app/Admin/adminapp.js">
+      <publishTime>12/16/2016 14:43:11</publishTime>
+    </File>
+    <File Include="app/Admin/admincontroller.js">
+      <publishTime>12/16/2016 14:45:11</publishTime>
+    </File>
+    <File Include="app/Admin/adminServices.js">
+      <publishTime>12/17/2016 13:06:09</publishTime>
+    </File>
+    <File Include="app/Admin/bank/controllers/bankcontroller.js">
+      <publishTime>11/28/2016 12:54:45</publishTime>
+    </File>
+    <File Include="app/Admin/bank/views/addbank.html">
+      <publishTime>11/21/2016 11:04:37</publishTime>
+    </File>
+    <File Include="app/Admin/bank/views/editbank.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/bank/views/listbank.html">
+      <publishTime>11/28/2016 13:26:33</publishTime>
+    </File>
+    <File Include="app/Admin/category/controllers/categorycontroller.js">
+      <publishTime>11/25/2016 12:47:46</publishTime>
+    </File>
+    <File Include="app/Admin/category/views/addcategory.html">
+      <publishTime>11/19/2016 18:22:39</publishTime>
+    </File>
+    <File Include="app/Admin/category/views/editcategory.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/category/views/listcategory.html">
+      <publishTime>11/28/2016 13:18:43</publishTime>
+    </File>
+    <File Include="app/Admin/consultant/controllers/consultantcontroller.js">
+      <publishTime>11/28/2016 12:46:50</publishTime>
+    </File>
+    <File Include="app/Admin/consultant/views/addconsultant.html">
+      <publishTime>02/10/2016 19:50:34</publishTime>
+    </File>
+    <File Include="app/Admin/consultant/views/editconsultant.html">
+      <publishTime>02/03/2016 12:14:13</publishTime>
+    </File>
+    <File Include="app/Admin/consultant/views/listconsultant.html">
+      <publishTime>12/17/2016 13:42:57</publishTime>
+    </File>
+    <File Include="app/Admin/content/controllers/contentcontroller.js">
+      <publishTime>11/28/2016 11:58:27</publishTime>
+    </File>
+    <File Include="app/Admin/content/views/addcontent.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/content/views/editcontent.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/content/views/listcontent.html">
+      <publishTime>11/28/2016 13:19:59</publishTime>
+    </File>
+    <File Include="app/Admin/creditauth/controllers/creditauthcontroller.js">
+      <publishTime>11/21/2016 13:01:29</publishTime>
+    </File>
+    <File Include="app/Admin/creditauth/views/addcreditauth.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/creditauth/views/editcreditauth.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/creditauth/views/listcreditauth.html">
+      <publishTime>11/28/2016 13:26:43</publishTime>
+    </File>
+    <File Include="app/Admin/department/controllers/departmentcontroller.js">
+      <publishTime>11/28/2016 12:38:08</publishTime>
+    </File>
+    <File Include="app/Admin/department/views/adddepartment.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/department/views/editdepartment.html">
+      <publishTime>11/21/2016 18:22:04</publishTime>
+    </File>
+    <File Include="app/Admin/department/views/listdepartment.html">
+      <publishTime>11/28/2016 13:25:40</publishTime>
+    </File>
+    <File Include="app/Admin/druggeneric/controllers/druggenericcontroller.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/druggeneric/views/adddruggeneric.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/druggeneric/views/editdruggeneric.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/druggeneric/views/listdruggeneric.html">
+      <publishTime>12/17/2016 13:50:56</publishTime>
+    </File>
+    <File Include="app/Admin/drugtype/controllers/drugtypecontroller.js">
+      <publishTime>11/25/2016 13:08:30</publishTime>
+    </File>
+    <File Include="app/Admin/drugtype/views/adddrugtype.html">
+      <publishTime>11/18/2016 18:54:09</publishTime>
+    </File>
+    <File Include="app/Admin/drugtype/views/editdrugtype.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/drugtype/views/listdrugtype.html">
+      <publishTime>11/28/2016 13:19:01</publishTime>
+    </File>
+    <File Include="app/Admin/manf/controllers/manufacturercontroller.js">
+      <publishTime>12/19/2016 14:15:58</publishTime>
+    </File>
+    <File Include="app/Admin/manf/views/addmanufacturer.html">
+      <publishTime>11/19/2016 12:11:13</publishTime>
+    </File>
+    <File Include="app/Admin/manf/views/editmanufacturer.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/manf/views/listmanufacturer.html">
+      <publishTime>11/28/2016 13:19:08</publishTime>
+    </File>
+    <File Include="app/Admin/patient/controllers/patientcontroller.js">
+      <publishTime>12/28/2016 00:21:14</publishTime>
+    </File>
+    <File Include="app/Admin/patient/views/addpatient.html">
+      <publishTime>12/17/2016 13:32:09</publishTime>
+    </File>
+    <File Include="app/Admin/patient/views/editpatient.html">
+      <publishTime>12/17/2016 13:32:01</publishTime>
+    </File>
+    <File Include="app/Admin/patient/views/listpatient.html">
+      <publishTime>12/19/2016 15:39:24</publishTime>
+    </File>
+    <File Include="app/Admin/product/controllers/productcontroller.js">
+      <publishTime>12/19/2016 15:59:53</publishTime>
+    </File>
+    <File Include="app/Admin/product/views/addproduct.html">
+      <publishTime>10/24/2016 19:24:42</publishTime>
+    </File>
+    <File Include="app/Admin/product/views/editproduct.html">
+      <publishTime>10/20/2016 13:24:16</publishTime>
+    </File>
+    <File Include="app/Admin/product/views/listproduct.html">
+      <publishTime>12/19/2016 16:04:06</publishTime>
+    </File>
+    <File Include="app/Admin/rack/controllers/rackcontroller.js">
+      <publishTime>11/28/2016 12:18:59</publishTime>
+    </File>
+    <File Include="app/Admin/rack/views/addrack.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/rack/views/editrack.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/rack/views/listrack.html">
+      <publishTime>11/28/2016 13:21:26</publishTime>
+    </File>
+    <File Include="app/Admin/role/controllers/rolecontroller.js">
+      <publishTime>12/19/2016 20:58:34</publishTime>
+    </File>
+    <File Include="app/Admin/role/views/addrole.html">
+      <publishTime>03/27/2016 19:41:27</publishTime>
+    </File>
+    <File Include="app/Admin/role/views/editrole.html">
+      <publishTime>12/19/2016 21:03:57</publishTime>
+    </File>
+    <File Include="app/Admin/role/views/listrole.html">
+      <publishTime>12/19/2016 21:17:41</publishTime>
+    </File>
+    <File Include="app/Admin/supplier/controllers/suppliercontroller.js">
+      <publishTime>12/19/2016 15:45:08</publishTime>
+    </File>
+    <File Include="app/Admin/supplier/views/addsupplier.html">
+      <publishTime>08/04/2016 01:18:04</publishTime>
+    </File>
+    <File Include="app/Admin/supplier/views/editsupplier.html">
+      <publishTime>08/04/2016 01:05:32</publishTime>
+    </File>
+    <File Include="app/Admin/supplier/views/listsupplier.html">
+      <publishTime>12/19/2016 15:53:43</publishTime>
+    </File>
+    <File Include="app/Admin/tax/controllers/taxcontroller.js">
+      <publishTime>11/28/2016 12:21:12</publishTime>
+    </File>
+    <File Include="app/Admin/tax/views/addtax.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/tax/views/edittax.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/tax/views/listtax.html">
+      <publishTime>11/28/2016 13:21:57</publishTime>
+    </File>
+    <File Include="app/Admin/unit/controllers/unitcontroller.js">
+      <publishTime>11/28/2016 12:21:46</publishTime>
+    </File>
+    <File Include="app/Admin/unit/views/addunit.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/unit/views/editunit.html">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="app/Admin/unit/views/listunit.html">
+      <publishTime>11/28/2016 13:20:41</publishTime>
+    </File>
+    <File Include="app/Admin/user/controllers/usercontroller.js">
+      <publishTime>06/28/2016 23:20:31</publishTime>
+    </File>
+    <File Include="app/Admin/user/views/adduser.html">
+      <publishTime>06/28/2016 23:21:47</publishTime>
+    </File>
+    <File Include="app/Admin/user/views/edituser.html">
+      <publishTime>06/28/2016 23:20:31</publishTime>
+    </File>
+    <File Include="app/Admin/user/views/listuser.html">
+      <publishTime>06/28/2016 23:20:31</publishTime>
+    </File>
+    <File Include="app/Bill/bill-app.js">
+      <publishTime>04/20/2017 12:45:17</publishTime>
+    </File>
+    <File Include="app/Bill/bill-service.js">
+      <publishTime>12/28/2016 00:17:09</publishTime>
+    </File>
+    <File Include="app/Bill/controllers/bill-entry-controller.js">
+      <publishTime>04/20/2017 14:37:03</publishTime>
+    </File>
+    <File Include="app/Bill/views/bill-entry.html">
+      <publishTime>04/20/2017 14:44:09</publishTime>
+    </File>
+    <File Include="app/Bill/views/bill-list.html">
+      <publishTime>01/09/2017 21:14:57</publishTime>
+    </File>
+    <File Include="app/Bill/views/bill-print.html">
+      <publishTime>04/21/2017 23:04:31</publishTime>
+    </File>
+    <File Include="app/BillReturn/billreturn-app.js">
+      <publishTime>10/25/2016 00:23:57</publishTime>
+    </File>
+    <File Include="app/BillReturn/billreturn-service.js">
+      <publishTime>12/19/2016 13:05:29</publishTime>
+    </File>
+    <File Include="app/BillReturn/controllers/billreturn-entry-controller.js">
+      <publishTime>12/20/2016 22:38:59</publishTime>
+    </File>
+    <File Include="app/BillReturn/views/billreturn-entry.html">
+      <publishTime>12/19/2016 13:36:06</publishTime>
+    </File>
+    <File Include="app/BillReturn/views/billreturn-list.html">
+      <publishTime>12/19/2016 14:08:13</publishTime>
+    </File>
+    <File Include="app/common.js">
+      <publishTime>05/30/2016 14:23:15</publishTime>
+    </File>
+    <File Include="app/CurrentStock/controllers/currentstock-entry-controller.js">
+      <publishTime>05/06/2016 20:36:13</publishTime>
+    </File>
+    <File Include="app/CurrentStock/currentstock-app.js">
+      <publishTime>01/27/2016 13:50:47</publishTime>
+    </File>
+    <File Include="app/CurrentStock/currentstock-service.js">
+      <publishTime>01/28/2016 20:34:00</publishTime>
+    </File>
+    <File Include="app/CurrentStock/views/currentstock-list.html">
+      <publishTime>01/28/2016 14:14:08</publishTime>
+    </File>
+    <File Include="app/CustomerReceivable/controllers/customerReceivable-controller.js">
+      <publishTime>01/21/2017 12:11:01</publishTime>
+    </File>
+    <File Include="app/CustomerReceivable/customerReceivable-app.js">
+      <publishTime>12/28/2016 12:25:16</publishTime>
+    </File>
+    <File Include="app/CustomerReceivable/customerReceivable-service.js">
+      <publishTime>12/29/2016 16:50:04</publishTime>
+    </File>
+    <File Include="app/CustomerReceivable/views/customerReceivable-entry.html">
+      <publishTime>12/30/2016 23:29:33</publishTime>
+    </File>
+    <File Include="app/CustomerReceivable/views/customerReceivable-list.html">
+      <publishTime>12/28/2016 23:07:46</publishTime>
+    </File>
+    <File Include="app/DepartmentBill/controllers/departmentbill-entry-controller.js">
+      <publishTime>05/07/2016 17:21:02</publishTime>
+    </File>
+    <File Include="app/DepartmentBill/departmentbill-app.js">
+      <publishTime>02/02/2016 12:03:49</publishTime>
+    </File>
+    <File Include="app/DepartmentBill/departmentbill-service.js">
+      <publishTime>02/02/2016 11:41:29</publishTime>
+    </File>
+    <File Include="app/DepartmentBill/views/departmentbill-entry.html">
+      <publishTime>12/17/2016 13:36:51</publishTime>
+    </File>
+    <File Include="app/DepartmentBill/views/departmentbill-list.html">
+      <publishTime>12/01/2016 18:01:18</publishTime>
+    </File>
+    <File Include="app/DepartmentIndent/controllers/departmentindent-entry-controller.js">
+      <publishTime>05/07/2016 17:31:03</publishTime>
+    </File>
+    <File Include="app/DepartmentIndent/departmentindent-app.js">
+      <publishTime>02/01/2016 20:17:03</publishTime>
+    </File>
+    <File Include="app/DepartmentIndent/departmentindent-service.js">
+      <publishTime>02/01/2016 20:16:14</publishTime>
+    </File>
+    <File Include="app/DepartmentIndent/views/departmentindent-entry.html">
+      <publishTime>12/16/2016 16:01:22</publishTime>
+    </File>
+    <File Include="app/DepartmentIndent/views/departmentindent-list.html">
+      <publishTime>12/16/2016 13:13:08</publishTime>
+    </File>
+    <File Include="app/DepartmentStock/controllers/departmentstock-entry-controller.js">
+      <publishTime>03/24/2016 15:04:16</publishTime>
+    </File>
+    <File Include="app/DepartmentStock/departmentstock-app.js">
+      <publishTime>03/23/2016 15:07:57</publishTime>
+    </File>
+    <File Include="app/DepartmentStock/departmentstock-service.js">
+      <publishTime>03/23/2016 15:05:41</publishTime>
+    </File>
+    <File Include="app/DepartmentStock/views/departmentstock-list.html">
+      <publishTime>03/23/2016 15:08:34</publishTime>
+    </File>
+    <File Include="app/DepartmentUsage/controllers/departmentusage-entry-controller.js">
+      <publishTime>05/07/2016 17:34:32</publishTime>
+    </File>
+    <File Include="app/DepartmentUsage/departmentusage-app.js">
+      <publishTime>02/06/2016 11:56:37</publishTime>
+    </File>
+    <File Include="app/DepartmentUsage/departmentusage-service.js">
+      <publishTime>02/25/2016 21:11:57</publishTime>
+    </File>
+    <File Include="app/DepartmentUsage/views/departmentusage-entry.html">
+      <publishTime>12/16/2016 16:10:13</publishTime>
+    </File>
+    <File Include="app/DepartmentUsage/views/departmentusage-list.html">
+      <publishTime>12/01/2016 17:56:02</publishTime>
+    </File>
+    <File Include="app/DueBills/controllers/duebills-controller.js">
+      <publishTime>04/07/2017 16:05:11</publishTime>
+    </File>
+    <File Include="app/DueBills/duebills-app.js">
+      <publishTime>09/18/2016 17:42:48</publishTime>
+    </File>
+    <File Include="app/DueBills/duebills-service.js">
+      <publishTime>09/18/2016 20:14:20</publishTime>
+    </File>
+    <File Include="app/DueBills/views/duebills-entry.html">
+      <publishTime>12/16/2016 16:35:22</publishTime>
+    </File>
+    <File Include="app/DueBills/views/duebills-list.html">
+      <publishTime>09/18/2016 18:17:41</publishTime>
+    </File>
+    <File Include="app/EditedBill/controllers/editedbill-controller.js">
+      <publishTime>09/15/2016 12:46:49</publishTime>
+    </File>
+    <File Include="app/EditedBill/editedbill-app.js">
+      <publishTime>09/15/2016 12:42:48</publishTime>
+    </File>
+    <File Include="app/EditedBill/editedbill-service.js">
+      <publishTime>07/26/2016 21:43:26</publishTime>
+    </File>
+    <File Include="app/EditedBill/views/editedbill-list.html">
+      <publishTime>09/15/2016 12:43:43</publishTime>
+    </File>
+    <File Include="app/EditedBill/views/editedbill-print.html">
+      <publishTime>07/26/2016 20:01:09</publishTime>
+    </File>
+    <File Include="app/Helpers/bootstrap-start.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/calendar.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/chart.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/chartist.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/classyloader.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/clear-storage.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/constants.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/flatdoc.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/fullscreen.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/gmap.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/jquery.storageapi.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/load-css.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/localize.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/maps-vector.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/morris.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/navbar-search.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/notify.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/now.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/panel-tools.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/play-animation.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/porlets.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/rickshaw.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/sidebar.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/skycons.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/slimscroll.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/sparkline.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/table-checkall.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/toggle-state.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Helpers/utils.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="app/Indent/controllers/indent-entry-controller.js">
+      <publishTime>05/07/2016 17:42:26</publishTime>
+    </File>
+    <File Include="app/Indent/indent-app.js">
+      <publishTime>02/10/2016 17:29:42</publishTime>
+    </File>
+    <File Include="app/Indent/indent-service.js">
+      <publishTime>01/30/2016 20:40:19</publishTime>
+    </File>
+    <File Include="app/Indent/views/indent-entry.html">
+      <publishTime>12/16/2016 16:37:48</publishTime>
+    </File>
+    <File Include="app/Indent/views/indent-list.html">
+      <publishTime>12/16/2016 13:15:21</publishTime>
+    </File>
+    <File Include="app/IndentBill/controllers/indentbill-entry-controller.js">
+      <publishTime>05/07/2016 17:47:19</publishTime>
+    </File>
+    <File Include="app/IndentBill/indentbill-app.js">
+      <publishTime>02/10/2016 17:29:35</publishTime>
+    </File>
+    <File Include="app/IndentBill/indentbill-service.js">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/IndentBill/views/indentbill-entry.html">
+      <publishTime>12/16/2016 16:08:16</publishTime>
+    </File>
+    <File Include="app/IndentBill/views/indentbill-list.html">
+      <publishTime>12/01/2016 17:58:40</publishTime>
+    </File>
+    <File Include="app/IndentReceivable/controllers/indentreceivable-entry-controller.js">
+      <publishTime>07/18/2016 15:53:10</publishTime>
+    </File>
+    <File Include="app/IndentReceivable/indentreceivable-app.js">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/IndentReceivable/indentreceivable-service.js">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/IndentReceivable/views/indentreceivable-entry.html">
+      <publishTime>12/16/2016 16:36:25</publishTime>
+    </File>
+    <File Include="app/IndentReceivable/views/indentreceivable-list.html">
+      <publishTime>12/01/2016 17:22:11</publishTime>
+    </File>
+    <File Include="app/InternalTransfer/controllers/internaltransfer-entry-controller.js">
+      <publishTime>01/05/2017 09:54:21</publishTime>
+    </File>
+    <File Include="app/InternalTransfer/internaltransfer-app.js">
+      <publishTime>12/21/2016 13:08:48</publishTime>
+    </File>
+    <File Include="app/InternalTransfer/internaltransfer-service.js">
+      <publishTime>02/02/2016 15:28:28</publishTime>
+    </File>
+    <File Include="app/InternalTransfer/views/internaltransfer-entry.html">
+      <publishTime>01/02/2017 19:23:30</publishTime>
+    </File>
+    <File Include="app/InternalTransfer/views/internaltransfer-list.html">
+      <publishTime>12/21/2016 12:43:06</publishTime>
+    </File>
+    <File Include="app/InternalTransfer/views/internaltransfer-print.html">
+      <publishTime>12/21/2016 13:11:49</publishTime>
+    </File>
+    <File Include="app/InternalTransferReturn/controllers/internaltransferreturn-entry-controller.js">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/InternalTransferReturn/internaltransferreturn-app.js">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/InternalTransferReturn/internaltransferreturn-service.js">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/InternalTransferReturn/views/internaltransferreturn-entry.html">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/InternalTransferReturn/views/internaltransferreturn-list.html">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="app/Purchase/controllers/purchase-entry-controller.js">
+      <publishTime>04/21/2017 19:54:11</publishTime>
+    </File>
+    <File Include="app/Purchase/purchase-app.js">
+      <publishTime>09/12/2016 22:25:40</publishTime>
+    </File>
+    <File Include="app/Purchase/purchase-service.js">
+      <publishTime>11/02/2016 21:22:04</publishTime>
+    </File>
+    <File Include="app/Purchase/views/open-stock.html">
+      <publishTime>06/28/2016 02:17:32</publishTime>
+    </File>
+    <File Include="app/Purchase/views/purchase-entry.html">
+      <publishTime>04/20/2017 19:29:29</publishTime>
+    </File>
+    <File Include="app/Purchase/views/purchase-list.html">
+      <publishTime>01/19/2017 21:18:03</publishTime>
+    </File>
+    <File Include="app/Purchase/views/purchase-print.html">
+      <publishTime>04/21/2017 22:09:54</publishTime>
+    </File>
+    <File Include="app/PurchaseReturn/controllers/purchasereturn-entry-controller.js">
+      <publishTime>09/29/2016 00:46:01</publishTime>
+    </File>
+    <File Include="app/PurchaseReturn/purchasereturn-app.js">
+      <publishTime>09/28/2016 02:05:58</publishTime>
+    </File>
+    <File Include="app/PurchaseReturn/purchasereturn-service.js">
+      <publishTime>09/28/2016 02:31:34</publishTime>
+    </File>
+    <File Include="app/PurchaseReturn/views/purchasereturn-entry.html">
+      <publishTime>12/16/2016 16:32:50</publishTime>
+    </File>
+    <File Include="app/PurchaseReturn/views/purchasereturn-list.html">
+      <publishTime>12/01/2016 17:42:58</publishTime>
+    </File>
+    <File Include="app/SalesReturn/controllers/salesreturn-entry-controller.js">
+      <publishTime>04/21/2017 23:41:13</publishTime>
+    </File>
+    <File Include="app/SalesReturn/salesreturn-app.js">
+      <publishTime>04/21/2017 23:10:40</publishTime>
+    </File>
+    <File Include="app/SalesReturn/salesreturn-service.js">
+      <publishTime>04/11/2016 12:28:19</publishTime>
+    </File>
+    <File Include="app/SalesReturn/views/salesreturn-entry.html">
+      <publishTime>04/21/2017 23:40:21</publishTime>
+    </File>
+    <File Include="app/SalesReturn/views/salesreturn-list.html">
+      <publishTime>12/01/2016 17:49:57</publishTime>
+    </File>
+    <File Include="app/SalesReturn/views/salesreturn-print.html">
+      <publishTime>04/21/2017 23:25:01</publishTime>
+    </File>
+    <File Include="app/StockAdjustment/controllers/stockadjustment-controller.js">
+      <publishTime>09/15/2016 13:13:41</publishTime>
+    </File>
+    <File Include="app/StockAdjustment/stockadjustment-app.js">
+      <publishTime>09/15/2016 12:42:25</publishTime>
+    </File>
+    <File Include="app/StockAdjustment/stockadjustment-service.js">
+      <publishTime>06/02/2016 01:59:36</publishTime>
+    </File>
+    <File Include="app/StockAdjustment/views/stockadjustment-entry.html">
+      <publishTime>12/20/2016 22:45:55</publishTime>
+    </File>
+    <File Include="app/StockAdjustment/views/stockadjustment-list.html">
+      <publishTime>12/01/2016 17:48:33</publishTime>
+    </File>
+    <File Include="app/SupplierPayable/controllers/supplierpayable-controller.js">
+      <publishTime>01/21/2017 13:54:50</publishTime>
+    </File>
+    <File Include="app/SupplierPayable/supplierpayable-app.js">
+      <publishTime>07/03/2016 19:20:13</publishTime>
+    </File>
+    <File Include="app/SupplierPayable/supplierpayable-service.js">
+      <publishTime>01/21/2017 13:10:27</publishTime>
+    </File>
+    <File Include="app/SupplierPayable/views/supplierpayable-entry.html">
+      <publishTime>01/21/2017 15:10:27</publishTime>
+    </File>
+    <File Include="app/SupplierPayable/views/supplierpayable-list.html">
+      <publishTime>01/21/2017 15:16:23</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/Autofac.dll">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/Autofac.Integration.Mvc.dll">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/BCrypt.Net.dll">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>01/17/2016 18:02:10</publishTime>
+    </File>
+    <File Include="bin/Dapper.pdb">
+      <publishTime>01/17/2016 18:02:10</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.Core.dll">
+      <publishTime>04/21/2017 11:56:52</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.Core.pdb">
+      <publishTime>04/21/2017 11:56:52</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.Infrastructure.dll">
+      <publishTime>04/21/2017 11:56:53</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.Infrastructure.pdb">
+      <publishTime>04/21/2017 11:56:53</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.UI.Web.dll">
+      <publishTime>04/21/2017 23:41:31</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.UI.Web.pdb">
+      <publishTime>04/21/2017 23:41:31</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.Utils.dll">
+      <publishTime>04/21/2017 11:56:53</publishTime>
+    </File>
+    <File Include="bin/Daria.MIS.Utils.pdb">
+      <publishTime>04/21/2017 11:56:52</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>01/17/2016 18:02:10</publishTime>
+    </File>
+    <File Include="bin/Elmah.Mvc.dll">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/Excel.dll">
+      <publishTime>03/27/2016 19:40:02</publishTime>
+    </File>
+    <File Include="bin/Excel.pdb">
+      <publishTime>03/27/2016 19:40:02</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>01/17/2016 18:02:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>01/17/2016 18:02:12</publishTime>
+    </File>
+    <File Include="bin/MoreLinq.dll">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>01/17/2016 18:02:13</publishTime>
+    </File>
+    <File Include="bin/NLog.dll">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/NReco.PdfGenerator.dll">
+      <publishTime>06/09/2016 21:59:21</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>01/17/2016 18:02:13</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>07/09/2013 11:04:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/17/2016 18:02:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>07/09/2013 11:04:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>01/17/2016 18:02:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/17/2016 18:02:11</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>01/17/2016 18:02:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>01/17/2016 18:02:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>01/17/2016 18:02:12</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/17/2016 18:02:13</publishTime>
+    </File>
+    <File Include="Content/Angle/css/app-rtl.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/app.css">
+      <publishTime>01/10/2017 15:50:32</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-a.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-b.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-c.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-d.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-e.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-f.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-g.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/css/theme-h.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/bower.json">
+      <publishTime>01/17/2016 18:00:24</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/README.md">
+      <publishTime>01/17/2016 18:00:24</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.css">
+      <publishTime>01/17/2016 18:00:24</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.eot">
+      <publishTime>01/17/2016 18:00:24</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.min.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.svg">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.ttf">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/angular-ui-grid/ui-grid.woff">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/fontawesome/css/font-awesome.min.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/fontawesome/fonts/fontawesome-webfont.eot">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/fontawesome/fonts/fontawesome-webfont.svg">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/fontawesome/fonts/fontawesome-webfont.ttf">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/fontawesome/fonts/fontawesome-webfont.woff">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/fontawesome/fonts/fontawesome-webfont.woff2">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/Angle/Vendor/fontawesome/fonts/FontAwesome.otf">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Content/images/ddd.jpg">
+      <publishTime>04/19/2017 17:51:21</publishTime>
+    </File>
+    <File Include="Content/images/tt.png">
+      <publishTime>12/19/2016 18:12:48</publishTime>
+    </File>
+    <File Include="Content/images/vc.jpg">
+      <publishTime>12/19/2016 14:26:09</publishTime>
+    </File>
+    <File Include="Content/plugin/ivh-treeview.css">
+      <publishTime>03/05/2016 18:28:53</publishTime>
+    </File>
+    <File Include="Content/plugin/xeditable.css">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/17/2016 18:00:26</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/09/2016 21:59:35</publishTime>
+    </File>
+    <File Include="Scripts/1.4.8/angular.min.js">
+      <publishTime>09/23/2016 21:52:18</publishTime>
+    </File>
+    <File Include="Scripts/angular-resource.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/angular-route.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/angular.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/hotkeys.min.js">
+      <publishTime>02/18/2016 15:34:44</publishTime>
+    </File>
+    <File Include="Scripts/html2canvas.min.js">
+      <publishTime>07/16/2016 08:32:57</publishTime>
+    </File>
+    <File Include="Scripts/ivh-treeview.js">
+      <publishTime>03/05/2016 18:28:54</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.3.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/jspdf.debug.js">
+      <publishTime>07/16/2016 07:48:33</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/ui-bootstrap-tpls-0.13.1.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/xeditable.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Scripts/xeditable.min.js">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPassword.cshtml">
+      <publishTime>06/27/2016 00:55:02</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>04/19/2017 18:28:16</publishTime>
+    </File>
+    <File Include="Views/Bill/Index.cshtml">
+      <publishTime>12/27/2016 23:35:40</publishTime>
+    </File>
+    <File Include="Views/BillReturn/Index.cshtml">
+      <publishTime>08/03/2016 13:30:16</publishTime>
+    </File>
+    <File Include="Views/CurrentStock/Index.cshtml">
+      <publishTime>01/27/2016 13:43:57</publishTime>
+    </File>
+    <File Include="Views/CustomerReceivable/Index.cshtml">
+      <publishTime>12/28/2016 22:44:09</publishTime>
+    </File>
+    <File Include="Views/DepartmentBill/Index.cshtml">
+      <publishTime>09/15/2016 12:39:34</publishTime>
+    </File>
+    <File Include="Views/DepartmentIndent/Index.cshtml">
+      <publishTime>09/15/2016 12:39:31</publishTime>
+    </File>
+    <File Include="Views/DepartmentStock/Index.cshtml">
+      <publishTime>09/15/2016 12:39:29</publishTime>
+    </File>
+    <File Include="Views/DepartmentUsage/Index.cshtml">
+      <publishTime>09/15/2016 12:39:27</publishTime>
+    </File>
+    <File Include="Views/DueBills/Index.cshtml">
+      <publishTime>09/18/2016 17:44:00</publishTime>
+    </File>
+    <File Include="Views/EditedBill/Index.cshtml">
+      <publishTime>09/15/2016 12:38:28</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/Indent/Index.cshtml">
+      <publishTime>09/15/2016 12:40:55</publishTime>
+    </File>
+    <File Include="Views/IndentBill/Index.cshtml">
+      <publishTime>09/15/2016 12:41:00</publishTime>
+    </File>
+    <File Include="Views/IndentReceivable/Index.cshtml">
+      <publishTime>09/15/2016 12:40:58</publishTime>
+    </File>
+    <File Include="Views/InternalTransfer/Index.cshtml">
+      <publishTime>09/15/2016 12:40:22</publishTime>
+    </File>
+    <File Include="Views/InternalTransferReturn/Index.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/Master/Index.cshtml">
+      <publishTime>07/03/2016 02:03:05</publishTime>
+    </File>
+    <File Include="Views/Purchase/Index.cshtml">
+      <publishTime>04/20/2017 17:35:53</publishTime>
+    </File>
+    <File Include="Views/PurchaseReturn/Index.cshtml">
+      <publishTime>09/14/2016 00:55:06</publishTime>
+    </File>
+    <File Include="Views/SalesReturn/Index.cshtml">
+      <publishTime>09/14/2016 00:30:08</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>06/06/2016 22:00:32</publishTime>
+    </File>
+    <File Include="Views/Shared/Lockout.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/Shared/UnAuthorized.cshtml">
+      <publishTime>06/06/2016 22:00:50</publishTime>
+    </File>
+    <File Include="Views/Shared/_Footer.cshtml">
+      <publishTime>09/26/2016 00:26:33</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>04/19/2017 19:41:22</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutHorizontal.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutNotLoggedIn.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/Shared/_Offsidebar.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/Shared/_SideMenuBar.cshtml">
+      <publishTime>01/09/2017 22:15:01</publishTime>
+    </File>
+    <File Include="Views/Shared/_TopNavbar.cshtml">
+      <publishTime>04/20/2017 12:07:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_TopNavbarHorizontal.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Views/StockAdjustment/Index.cshtml">
+      <publishTime>09/15/2016 12:39:48</publishTime>
+    </File>
+    <File Include="Views/SupplierPayable/Index.cshtml">
+      <publishTime>09/15/2016 12:39:59</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>12/15/2016 17:22:02</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>01/17/2016 18:00:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/21/2017 11:57:46</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

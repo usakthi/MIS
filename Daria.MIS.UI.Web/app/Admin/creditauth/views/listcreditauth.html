@@ -1,0 +1,161 @@
+﻿
+<div class="row">
+    <div class="col-sm-4">
+        <h4 style="padding-left:0em; color:darkblue;font-size:28px;font-style:oblique;margin-top:-8px;">CreditAuthorize</h4>
+    </div>
+    <!--<div class="col-sm-3">
+        <a href="#/creditauth/add" class="btn btn-primary">Add New CreditAuthorize &nbsp;<i class="fa fa-plus"></i></a>
+    </div>-->
+
+    <!--<div class="col-sm-2">
+        <label class="text-dark text-green text-bold">Search Authorize Name</label>
+ </div>-->
+    <div class="col-sm-2">
+        <input name="Name" type="text" class="form-control text-pink ui-search-toolbar" placeholder="CreditAuthorize" ng-model="creditName" />
+
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+
+        <div class="master_dropdown">
+            <button class="master_dropbtn">Add New  CreditAuthorize &nbsp;<i class="fa fa-plus"></i></button>
+            <div class="master_dropdown-content" >
+
+                <form name="formAddCategory" novalidate ng-submit="add()">
+                    <div class="form-group">
+                        <div class=" row">
+                            <div class="col-sm-3">
+                                <label for="AuthName">Authorize Name</label>
+                               
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="AuthName" type="text" class="form-control" ng-required="true" required placeholder="Enter Authorize Name" ng-model="creditauth.AuthName">
+                                <span style="color:red" ng-show="formAddCreditAuth.AuthName.$error.required" oninvalid="true">Please Enter Authorize Name</span>
+
+                            </div>
+
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="DepName">Department </label>
+                              
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="DepName" type="text" class="form-control" placeholder="Enter Department" ng-model="creditauth.DepName" ng-required="true" required>
+                                <span style="color:red" ng-show="formAddCreditAuth.DepName.$error.required" oninvalid="true">Please Enter Department Name</span>
+
+                            </div>
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="DesigName">Designation </label>
+                              
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="DesigName" type="text" class="form-control" placeholder="Enter Designation" ng-model="creditauth.DesigName" ng-required="true" required>
+                                <span style="color:red" ng-show="formAddCreditAuth.DesigName.$error.required" oninvalid="true">Please Enter Designation Name</span>
+
+                            </div>
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="FindBy">Find By</label>
+                              
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="FindBy" type="text" class="form-control" placeholder="Find By" ng-model="creditauth.FindBy">
+
+                            </div>
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="isActive">
+                                    Active
+                                   
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" name="isActive" ng-model="creditauth.isActive" />
+                            </div>
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+
+                            <div class="col-sm-4">
+                                <button type="submit" ng-disabled="formAddCreditAuth.$invalid" class="btn " style="background-color:darkmagenta;color:white;">Save</button>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>&nbsp;
+<div class="col-sm-12">
+   
+    <!-- START panel-->
+    <!--<div class="panel panel-default">-->
+
+        <!-- START table-responsive-->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead style="background-color:darkcyan;font-weight:bold;font-size:18px;">
+                    <tr>
+                        <th style="width:12%;"></th>
+                        <th style="text-align:center;color:white;">Sl.No</th>
+
+                        <th style="text-align:center;color:white;">AuthorizeName</th>
+                        <th style="text-align:center;color:white;">DepartmentName</th>
+                        <th style="text-align:center;color:white;">DesignationName</th>
+                        <th style="text-align:center;color:white;">FindBy</th>
+                        <th style="text-align:center;color:white;">IsActive</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color:lavender;font-size:20px;color:navy;">
+                    <tr ng-repeat="creditauth in creditauths | filter:creditName">
+                        
+                        <td>
+                            <a href="#/creditauth/edit/{{creditauth.Id}}" class="btn btn-labeled btn-purple btn-xs">
+                                <span class="btn-label"><i class="fa fa-edit"></i></span>
+                                <span class="hidden-xs"></span>
+                            </a>
+                            <a ng-click="delete(creditauth.Id)" class="btn btn-labeled btn-danger btn-xs">
+                                <span class="btn-label"><i class="fa fa-times"></i></span>
+                                <span class="hidden-xs"></span>
+                            </a>
+                        </td>
+                        <td>{{creditauth.SlNo}}</td>
+                        <td>{{creditauth.AuthName}}</td>
+                        <td>{{creditauth.DepName}}</td>
+                        <td>{{creditauth.DesigName}}</td>
+                        <td>{{creditauth.FindBy}}</td>
+                        <td><em ng-show="creditauth.isActive" class="fa fa-fw fa-check text-success"></em></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- END table-responsive-->
+    </div>
+    <!-- END panel-->
+<!--</div>-->
+
+<div id="confirm-creditauth-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-creditauth-delete-lable" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 id="myModalLabelSmall" class="modal-title">Confirm Delete</h4>
+            </div>
+            <div class="modal-body">Are you sure, you want to delete this CreditAuthorize?</div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                <button type="button" id="delete" class="btn btn-primary btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

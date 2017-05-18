@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="@Styles.Url("~/content/plugin/xeditable.css")" rel="stylesheet" type="text/css" />
+    <link href="@Styles.Url("~/content/angle/vendor/angular-ui-grid/ui-grid.min.css")" rel="stylesheet" type="text/css" />
+}
+
+<div ng-view ng-app="adminApp" class="content-wrapper">
+</div>
+
+
+@section Scripts {
+    <script src="@Scripts.Url("~/scripts/ivh-treeview.js")" type="text/javascript"></script>
+<script src="@Scripts.Url("~/scripts/ui-bootstrap-tpls-0.13.1.min.js")" type="text/javascript"></script>
+<script src="@Scripts.Url("~/scripts/xeditable.min.js")" type="text/javascript"></script>
+<script src="@Scripts.Url("~/content/angle/vendor/angular-ui-grid/ui-grid.min.js")" type="text/javascript"></script>
+
+    @Scripts.Render("~/bundles/Admin")
+
+}
+

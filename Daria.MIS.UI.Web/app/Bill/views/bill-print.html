@@ -1,0 +1,192 @@
+﻿<style type="text/css">
+    .btn {
+        margin: 5px;
+    }
+
+    .invoice th, .invoice td {
+        padding: 5px;
+    }
+
+    .supplier th, .supplier td {
+        padding: 5px;
+    }
+
+    .purchase-header {
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+
+    #printContent th {
+        vertical-align: top;
+    }
+</style>
+<div class="purchase-print">
+    <div ng-hide="convertedPdf">
+        <div id="printContent" style="padding:0px 0px; background:white;">
+            <div class="purchase-header" style="margin-bottom:0px">
+                <div class="pull-left supplier">
+                    <table border="0">
+                        <tbody>
+                            <!--<tr>
+                                <td style="width:250px">BillNo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{purchaseHeader.BillNo}}</td>
+                                <td style="width:250px">Customer&nbsp;: {{purchaseHeader.Customer}} </td>
+                                <td style="width:250px"> VAT TIN No. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29080044394 </td>
+                            </tr>
+                            <tr>
+                                <td style="width:275px">BillDate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{purchaseHeader.BillDate}}</td>
+                                <td style="width:275px">PatientNo: {{purchaseHeader.IPNo}}</td>
+                                <td style="width:275px">Drug Licence Nos. KA/BNG/IV/20/544</td>
+                            </tr>
+                            <tr>
+                                <td style="width:275px">Consultant:&nbsp;Dr.{{purchaseHeader.ConsultantName}}</td>
+                                <td style="width:275px"><center><u><b>{{purchaseHeader.SalesMode}} Invoice</b></u></center></td>
+                                <td style="width:275px;padding-left:107px">KA/BNG/IV/21/544</td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br />
+            
+                <table ng-hide="dataLoading" border="1" class="table" style="border:solid;border-width:2px">
+                    <thead style="border-bottom:solid;border-width:2px">
+                                   <tr>
+                                        <td colspan="3" style="width:250px;padding:0px 0px 0px 8px"><img src="favicon.jpj" alt="Smiley face" height="52" width="82"></td>
+                                        <td colspan="3" style="width:250px;padding:0px 0px 0px 8px"><B>MG Pharma</B>Managed by <B>Xplora<B></Br> Kengari,Bangalore -67</td>
+                                        <td colspan="3" style="width:250px;padding:0px 0px 0px 8px">Phone : 02584421588 </Br>Mobile No: 9865324152</td>
+                                    </tr>
+                        <tr>
+                            <td colspan="9" style="padding:0px 0px 0px 0px">
+                                <table border="0" style="padding:0px 0px 0px 0px">
+                                    <tr>
+ 		<td colspan="3" style="width:250px;padding:0px 0px 0px 8px">Patient Name&nbsp;: {{purchaseHeader.Customer}} </td>
+                                    <td colspan="3" style="width:250px;padding:0px 0px 0px 8px">BillNo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{purchaseHeader.BillNo}}</td>
+                                    <td colspan="3" style="width:275px;padding:0px 0px 0px 8px">Lic No: 24521455145202</td>                                      
+                                    <td colspan="3" style="width:250px;padding:0px 0px 0px 8px"></td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="3" style="width:250px;padding:0px 0px 0px 8px">Doctor:&nbsp;{{purchaseHeader.ConsultantName}}</td>
+                                    <td colspan="3" style="width:275px;padding:0px 0px 0px 8px">BillDate&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{purchaseHeader.BillDate}}</td>
+	                  <td colspan="3" style="width:250px;padding:0px 0px 0px 8px">DL No:KA-02-02155</td>
+                                   <!-- <td colspan="3" style="width:275px;padding:0px 0px 0px 8px">PatientNo: {{purchaseHeader.IPNo}}</td> -->         
+                                    </tr>
+                                    <tr>
+                                   <!-- <td colspan="3" style="width:275px;padding:0px 0px 0px 8px">PatientNo: {{purchaseHeader.IPNo}}</td> -->         
+                                    </tr>
+                                    <tr>
+	                     <!-- <td colspan="3" style="width:275px;padding:0px 0px 0px 8px">DL No: KA-Bl03-LED02</td>
+                                        <td colspan="3" style="width:275px;padding:0px 0px 0px 8px">Lic No: 24521455145202</td>
+                                        <td colspan="3" style="width:275px;padding:0px 0px 0px 8px;font-size:medium;align-content:center"><u>{{purchaseHeader.SalesMode}} Invoice</u></td> -->
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" style="padding:0px 0px 0px 0px">
+                                        <hr style="border:solid;border-width:2px;margin:0px 0px 0px 0px" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:30px;font-size:medium;padding-left:8px">S#</td>
+                                        <td style="width:200px;font-size:medium">DrugName</td>
+                                        <td style="width:100px;font-size:medium">BatchNo</td>
+                                        <td style="width:100px;font-size:medium">Mfg</td>
+                                        <td style="width:80px;font-size:medium">Expiry</td>
+                                        <td style="width:60px;font-size:medium">Qty</td>
+                                        <td style="width:80px;font-size:medium">MRP</td>
+                                        <td style="width:100px;font-size:medium">Total</td>
+                                        <td style="width:40px;font-size:medium">VAT</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="order in purchaseOrders">
+                            <td style="column-width:30px;padding:0px 0px 0px 8px">{{$index + 1}}</td>
+                            <td style="column-width:200px;padding:0px 0px 0px 8px">{{order.ProductName }}</td>
+                            <td style="column-width:100px;padding:0px 0px 0px 8px">{{order.BatchNo}}</td>
+                            <td style="column-width:100px;padding:0px 0px 0px 8px">{{order.Manufacturer}}</td>
+                            <td style="column-width:80px;padding:0px 0px 0px 8px">{{order.ExpDate}}</td>
+                            <td style="column-width:60px;padding:0px 0px 0px 8px">{{order.Qty}}</td>
+                            <td style="column-width:80px;padding:0px 0px 0px 8px">{{order.MRP}}</td>
+                            <td style="column-width:100px;padding:0px 0px 0px 8px">{{order.TotalMRP}}</td>
+                            <td style="column-width:40px;padding:0px 0px 0px 8px">{{order.VAT}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="9" style="padding:0px 0px 0px 0px">
+                                <hr style="border-bottom:solid;border-width:2px;margin:0px 0px 0px 0px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="width:0px">User Name : {{purchaseHeader.AddedUserName}}</td>
+                              <td colspan="3" style="width:0px">Discount Amt :</td>
+                               <td colspan="3" style="width:0px">Paid Amount:</td>
+                            <td style="width:0px;font-size:20px">{{purchaseHeader.PaidAmount | number}}</td>
+                            <td style="width:0px"></td>
+                            
+                        </tr>
+                    </tfoot>
+                </table>
+            
+            <br />
+            <div class="page">
+                <table border="0">
+                    <tbody>
+                        <!--<tr>
+                            <td style="width:290px">User Name : {{purchaseHeader.AddedUserName}}</td>
+                        </tr>-->
+                        <!--<tr>
+                        <td style="width:290px">User Name : {{purchaseHeader.AddedUserName}}</td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Total Amount:</td>
+                        <td style="width:140px">  {{purchaseHeader.TotalAmount | number}}</td>
+                    <tr>
+                    <tr>
+                        <td style="width:290px"></td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Discount:</td>
+                        <td style="width:140px">  {{purchaseHeader.RoundOff | number}}</td>
+                    </tr>
+                    <tr>
+                        <td style="width:290px"></td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Net Amount:</td>
+                        <td style="width:140px">  {{purchaseHeader.NetAmount | number}}</td>
+                    </tr>-->
+                        <!--<tr>
+                            <td style="width:290px">User Name : {{purchaseHeader.AddedUserName}}</td>
+
+                             <td style="width:290px"></td>
+                             <td style="width:290px"></td>
+                             <td style="width:100px">Paid Amount:</td>
+                             <td style="width:140px">{{purchaseHeader.PaidAmount | number}}</td>
+                        </tr>-->
+                        <!--<tr>
+                        <td style="width:290px"></td>
+                        <td style="width:290px"></td>
+                        <td style="width:100px">Balance:</td>
+                        <td style="width:140px">  {{purchaseHeader.Balance | number}}</td>
+                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+                <div style="text-align:center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" ng-click="closeForm()">Cancel</button>
+                        <button type="button" class="btn btn-primary" ng-click="printForm();closeForm()">Print</button>
+                    </div>
+                </div>
+
+            <div ng-show="convertedPdf">
+                <center>
+                    <button type="button" class="btn btn-default" ng-click="closeForm()">Close</button>
+                    <div id="pdfWraper">
+
+                    </div>
+                </center>
+            </div>
+        </div>
+</div>
+

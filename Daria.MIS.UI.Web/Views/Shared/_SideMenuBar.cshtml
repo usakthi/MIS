@@ -1,0 +1,66 @@
+@using Daria.MIS.Core.Entities
+@model List<MenuItem>
+
+
+<!-- START Sidebar (left)-->
+<div class="aside-inner">
+    <nav class="sidebar" data-sidebar-anyclick-close="">
+        <!-- START sidebar nav-->
+        @if (Model != null && Model.Count > 0)
+        {
+            <ul class="nav">
+
+                @foreach (MenuItem menuItem in Model)
+                {
+
+
+                    <li>
+                        @if (menuItem.SubMenus.Count > 0)
+                        {
+                            <a href="#@menuItem.Key" data-toggle="collapse">
+                                @if (!string.IsNullOrEmpty(menuItem.DisplayImageClass))
+                                {
+                                    <em class="@menuItem.DisplayImageClass"></em>
+                                }
+                                <span>@menuItem.DisplayText</span>
+                            </a>
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Content(menuItem.Url)">
+                                @if (!string.IsNullOrEmpty(menuItem.DisplayImageClass))
+                                {
+                                    <em class="@menuItem.DisplayImageClass"></em>
+                                }
+                                <span>@menuItem.DisplayText</span>
+                            </a>
+                        }
+
+                        @if (menuItem.SubMenus.Count > 0)
+                        {
+                            <ul id="@menuItem.Key" class="nav sidebar-subnav">
+                                <li class="sidebar-subnav-header">@menuItem.Key</li>
+                                @foreach (MenuItem subMenu in menuItem.SubMenus)
+                                {
+                                    <li>
+                                        <a href="@Url.Content(subMenu.Url)">
+                                            @if (!string.IsNullOrEmpty(subMenu.DisplayImageClass))
+                                            {
+                                                <em class="@subMenu.DisplayImageClass"></em>
+                                            }
+                                            <span data-localize="sidebar.nav.DASHBOARD">@subMenu.DisplayText</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+
+            </ul>
+        }
+        <!-- END sidebar nav-->
+    </nav>
+</div>
+<!-- END Sidebar (left)-->

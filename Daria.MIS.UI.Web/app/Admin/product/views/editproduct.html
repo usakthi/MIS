@@ -1,0 +1,212 @@
+﻿<h3>Edit Product</h3>
+<div class="row">
+    <!--<div class="col-md-5">-->
+        <form name="formEditProduct" novalidate ng-submit="edit()">
+            <div class="form-group">
+                <label>
+                    Single Drug<input name="Classification" type="radio" ng-model="product.Classification" ng-checked="true" value="S" />
+                    <input name="Classification" type="radio" ng-model="product.Classification" value="M" />Multiple Drug
+                </label>
+            </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="Name">Drug Name</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input name="Name" type="text" class="form-control  text-uppercase" ng-required="true" placeholder="Enter Drug Name" ng-model="product.Name" required>
+                                    <span style="color:red" ng-show="formEditProduct.Name.$error.required" oninvalid="true">Please Enter Drug Name</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="CategoryId">Category</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-rounded text-uppercase" ng-model="product.CategoryId">
+                                        <option ng-repeat="cat in category" value="{{cat.Id}}">{{cat.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="TypeId">Type</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select name="TypeId" class="form-control form-control-rounded text-uppercase" ng-model="product.TypeId" ng-required="true" required>
+                                        <option ng-repeat="type in Type" value="{{type.Id}}">{{type.Name}}</option>
+                                    </select>
+                                    <span style="color:red" ng-show="formEditProduct.TypeId.$error.required" oninvalid="true">Please Select Drug Type</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="ManfId">Manufacturer</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-rounded text-uppercase" ng-model="product.ManfId">
+                                        <option ng-repeat="manuf in Man" value="{{manuf.Id}}">{{manuf.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="MainCategoryId">Main Category</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-rounded text-uppercase" ng-model="product.MainCategoryId">
+                                        <option ng-repeat="cont in Content" value="{{cont.Id}}">{{cont.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+
+                                    <label for="GenericId">Content</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-rounded text-uppercase" ng-model="product.GenericId">
+                                        <option ng-repeat="genc in Generic" value="{{genc.Id}}">{{genc.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="UnitId">Unit</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-rounded text-uppercase" ng-model="product.UnitId">
+                                        <option ng-repeat="unit in unit" value="{{unit.Id}}">{{unit.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="RackId">Rack</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-rounded text-uppercase" ng-model="product.RackId">
+                                        <option ng-repeat="racks in rack" value="{{racks.Id}}">{{racks.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="TaxId">Tax</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control form-control-rounded text-uppercase" ng-model="product.TaxId">
+                                        <option ng-repeat="taxs in tax" value="{{taxs.Id}}">{{taxs.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="MinStock">Minimum Stock</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input name="MinStock" type="number" class="form-control" placeholder="Enter MinimamStk" ng-model="product.MinStock">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="MaxStock">Maximum Stock</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input name="MaxStock" type="number" class="form-control" placeholder="Enter MaximamStk" ng-model="product.MaxStock">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    Notify Before Me Date of Expiry
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="checkbox" name="ExpiryNotifyinDays" ng-model="product.ExpiryNotifyinDays" />
+                                    <input name="ExpiryDays" type="number" ng-model="product.ExpiryDays">Days of Expiry
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    Supplier Will take Back Before
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="checkbox" name="SuppTakenBeforExpiryDays" ng-model="product.SuppTakenBeforExpiryDays" />
+                                    <input name="TakenBeforeDays" type="number" ng-model="product.TakenBeforeDays">Days of Expiry
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    Supplier Will take Even After
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="checkbox" name="SuppTakenAfterExpiryDays" ng-model="product.SuppTakenAfterExpiryDays" />
+                                    <input name="TakenAfterDays" type="number" ng-model="product.TakenAfterDays">Days of Expiry
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="isActive">
+                                Active
+                                <input type="checkbox" name="isActive" ng-model="product.isActive" />
+                            </label>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <a href="#/product" class="btn btn-default">Cancel</a>
+                        </div>
+                        <div class="col-sm-4">      <button type="submit" ng-disabled="formEditProduct.$invalid" class="btn btn-primary">Save</button></div>
+                    </div>
+                </div>  <!--form-group ending div-->
+</form>
+
+   <!-- </div>-->
+</div>

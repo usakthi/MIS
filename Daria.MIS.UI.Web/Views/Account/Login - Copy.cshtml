@@ -1,0 +1,44 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LayoutNotLoggedIn.cshtml";
+}
+@*<div style="background-color:green;">*@
+<div style="width:25%;height:25%;margin-left:33%; margin-top:6%;margin-right:30%; box-shadow: 0px 8px 14px 23px currentcolor;background-color:black;">
+    <!-- START panel-->
+    <div class="panel panel-dark panel-flat" style=" background-color: transparent; color: antiquewhite;">
+        <div class="panel-heading text-center" style=" background-color: transparent;">
+            @*<a href=" #">
+                <img src="~/Content/Images/logo.png" alt="Image" class="block-center img-rounded" />
+                </a>*@
+            <div class="brand-logo">
+                <em class="fa fa-user fa-2x"></em>
+            </div>
+        </div>
+        <div class="panel-body">
+            <p class="text-center pv">SIGN IN TO CONTINUE.</p>
+            <form role="form" data-parsley-validate="" novalidate="" method="post" action="@Url.Action("Login", "Account")" class="mb-lg">
+                <div class="form-group has-feedback">
+                    <input id="UserName" name="UserName" type="text" placeholder="User name" autocomplete="off" required="required" class="form-control" />
+                    <span class="fa form-control-feedback text-muted"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="Password" name="Password" type="password" placeholder="Password" required="required" class="form-control" />
+                    <span class="fa fa-lock form-control-feedback text-muted"></span>
+                </div>
+                <div class="clearfix">
+                    <div class="checkbox c-checkbox pull-left mt0">
+
+                    </div>
+                    <div class="pull-right">
+                        <a href="@Url.Action("ForgotPassword", "Account")" class="text-muted" style="color:antiquewhite;">Reset password?</a>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- END panel-->
+</div>
+@*</div>*@

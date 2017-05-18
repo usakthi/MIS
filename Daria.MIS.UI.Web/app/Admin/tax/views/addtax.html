@@ -1,0 +1,25 @@
+﻿<h3>Add Tax</h3>
+<div class="row">
+    <div class="col-md-5">
+        <form name="formAddTax" novalidate ng-submit="add()">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input name="Name" type="text" class="form-control" ng-required="true" placeholder="Enter Name" ng-model="tax.Name">
+                <span style="color:red" ng-show="formAddTax.Name.$error.required" oninvalid="true">Please Enter Tax</span>
+            </div>
+            <div class="form-group">
+                <label for="Desc">Description</label>
+                <input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="tax.Desc">
+            </div>
+            <div class="form-group">
+                <label for="isActive">
+                    Active
+                    <input type="checkbox" name="isActive" ng-model="tax.isActive" />
+                </label>
+            </div>
+            <a href="#/tax" class="btn btn-default">Cancel</a>
+            <button type="submit" ng-disabled="formAddTax.$invalid" class="btn btn-primary">Save</button>
+        </form>
+
+    </div>
+</div>

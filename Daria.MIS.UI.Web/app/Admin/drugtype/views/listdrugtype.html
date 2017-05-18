@@ -1,0 +1,155 @@
+﻿
+<div class="row">
+    <div class="col-sm-8">
+
+        <h4 style="padding-left:0em; color:darkblue;font-size:28px;font-style:oblique;margin-top:-8px;">Drug Type</h4>
+
+    </div>
+    <div class="col-sm-4">
+
+        <div class="master_dropdown">
+            <button class="master_dropbtn">Add New Drug Type &nbsp;<i class="fa fa-plus"></i></button>
+            <div class="master_dropdown-content">
+
+                <form name="formAddCategory" novalidate ng-submit="add()">
+                    <div class="form-group">
+                        <div class=" row">
+                            <div class="col-sm-3">
+                                <label for="Name">Name</label>
+                            </div>
+                            <div class="col-sm-8">
+                              
+                                <input name="Name" type="text" class="form-control" ng-required="true" placeholder="Enter Name" ng-model="type.Name">
+                                <span style="color:red" ng-show="formAddType.Name.$error.required" oninvalid="true">Please Enter Drug Type</span>
+
+                            </div>
+                            <!--<div class="col-sm-1"></div>-->
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="Desc">Description</label>
+                            </div>
+                            <div class="col-sm-8">
+                               
+                                <input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="type.Desc">
+
+                            </div>
+                            <!--<div class="col-sm-1"></div>-->
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="isActive">
+                                    Active
+                                   
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" name="isActive" ng-model="type.isActive" />
+                            </div>
+                        </div>&nbsp;
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+
+                            <div class="col-sm-4">
+                                <button type="submit" ng-disabled="formAddType.$invalid" class="btn" style="background-color:darkmagenta;color:white;">Save</button>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+   
+        
+        </div>&nbsp;
+        <div class="col-sm-12">
+
+            <!-- START panel-->
+            <!--<div class="panel panel-default">-->
+            <!-- START table-responsive-->
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead style="background-color:darkcyan;font-weight:bold;font-size:18px;">
+                        <tr>
+                            <th style="width:12%;"></th>
+                            <th style="text-align:center;color:white;">Sl.No</th>
+                            <th style="text-align:center;color:white;">Name</th>
+                            <th style="text-align:center;color:white;">Description</th>
+                            <th style="text-align:center;color:white;width:11%;">IsActive</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color:lavender;font-size:20px;color:navy;">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><input type="text" placeholder="Name" style="width:150px" ng-model="strSearch.Name" /></td>
+                            <td><input type="text" placeholder="Description" style="width:250px" ng-model="strSearch.Desc" /></td>
+                            <td></td>
+                        </tr>
+                        <tr ng-repeat="order in types | filter:strSearch" ng-init="$last && repeaterRefreshed()">
+                            <td>
+                                
+                                <form editable-form name="rowform" onaftersave="saveItem($data, order.Id, rowform, $index)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == order" style="width:45px">
+                                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary btn-xs">
+                                        <em class="fa fa-save"></em>
+                                    </button>
+                                    <button type="button" ng-disabled="rowform.$waiting" ng-click="cancelProduct(order,rowform)" class="btn btn-default">
+                                        <em class="fa fa-times"></em>
+                                    </button>
+                                </form>
+                                <div class="buttons" ng-show="!rowform.$visible">
+                                    <button class="btn btn-primary" ng-click="rowform.$show()"><em class="fa fa-edit"></em></button>
+                                    <button class="btn btn-danger" ng-click="removeProduct(order)"><em class="fa fa-trash"></em></button>
+                                </div>
+                            </td>
+
+                            <td>{{$index + 1}}</td>
+                            <td hidden>
+                                <span editable-number="order.Id" e-ng-show="false" e-name="Id" e-class="ng-hide id" e-form="rowform">
+                                    {{ order.Id || 0 }}
+                                </span>
+                            </td>
+                            <td>
+                                <span editable-text="order.Name" e-name="Name" e-form="rowform">
+                                    {{order.Name}}
+                                </span>
+                            </td>
+                            <td>
+                                <span editable-text="order.Desc" e-name="Desc" e-form="rowform">
+                                    {{order.Desc}}
+                                </span>
+                            </td>
+                            <td>
+                                <span editable-checkbox="order.isActive" name="isActive" e-form="rowform">
+                                    <em ng-show="order.isActive" class="fa fa-fw fa-check text-success"></em>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- END table-responsive-->
+        </div>
+        <!-- END panel-->
+        <!--</div>-->
+
+        <div id="confirm-type-delete" tabindex="-1" role="dialog" aria-labelledby="confirm-type-delete-lable" aria-hidden="true" class="modal fade">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 id="myModalLabelSmall" class="modal-title">Confirm Delete</h4>
+                    </div>
+                    <div class="modal-body">Are you sure, you want to delete this DrugType?</div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                        <button type="button" id="delete" class="btn btn-primary btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>

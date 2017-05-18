@@ -1,0 +1,52 @@
+﻿<h1>Edit Bank</h1>
+<div class="row">
+    <div class="col-md-5">
+        <form name="formEditBank" novalidate ng-submit="edit()">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input name="Name" type="text" class="form-control" ng-required="true" placeholder="Enter Name" ng-model="ban.Name" required>
+                <span style="color:red" ng-show="formEditBank.Name.$error.required" oninvalid="true">Please Enter Bank Type</span>
+            </div>
+            <div class="form-group">
+                <label for="Desc">Description</label>
+                <input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="ban.Desc">
+            </div>
+            <div class="form-group">
+                <label for="isActive">
+                    Active
+                    <input type="checkbox" name="isActive" ng-model="ban.isActive" />
+                </label>
+            </div>
+            <a href="#/bank" class="btn btn-default">Cancel</a>
+            <button type="submit" ng-disabled="formEditBank.$invalid" class="btn btn-primary">Save</button>
+        </form>
+
+    </div>
+</div>
+
+<!--<div class="col-lg-6">
+    <form name="formEditBank" novalidate ng-submit="add()">
+        <div class="panel panel-default">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>IsActive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input name="Name" type="text" class="form-control" ng-required="true" placeholder="Enter Name" ng-model="ban.Name" required></td>
+                            <td><input name="Desc" type="text" class="form-control" placeholder="Enter description" ng-model="ban.Desc"></td>
+                            <td><input type="checkbox" name="isActive" ng-model="ban.isActive" /></td>
+                            <td><a href="#/bank" class="btn btn-default">Cancel</a></td>
+                            <td><button type="submit" ng-disabled="formEditBank.$invalid" class="btn btn-primary">Save</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>-->

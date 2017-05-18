@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link href="@Styles.Url("~/content/plugin/xeditable.css")" rel="stylesheet" type="text/css" />
+}
+<div ng-view ng-app="departmentbillApp" class="content-wrapper">
+</div>
+
+
+@section Scripts {
+    <script src="@Scripts.Url("~/scripts/ui-bootstrap-tpls-0.13.1.min.js")" type="text/javascript"></script>
+    <script src="@Scripts.Url("~/scripts/xeditable.min.js")" type="text/javascript"></script>
+    <script src="@Scripts.Url("~/scripts/hotkeys.min.js")" type="text/javascript"></script>
+
+    @Scripts.Render("~/bundles/departmentbill")
+
+    <script type="text/javascript">
+    var purchApp = angular.module('departmentbillApp');
+    purchApp.value('SupplierList', @Html.Raw(Json.Encode(ViewBag.Suppliers)));
+    purchApp.value('RackList', @Html.Raw(Json.Encode(ViewBag.Racks)));
+    purchApp.value('ManufacturerList', @Html.Raw(Json.Encode(ViewBag.Manufacturers)));
+    purchApp.value('UnitList', @Html.Raw(Json.Encode(ViewBag.Units)));
+    purchApp.value('IndentList', @Html.Raw(Json.Encode(ViewBag.Indents)));
+    purchApp.value('PharmacyIdEnc', '@Html.Raw(ViewBag.PharmacyIdEnc)');
+
+
+
+    </script>
+}

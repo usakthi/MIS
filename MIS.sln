@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B229B7A2-2BC8-4B55-9D53-E31AEB00F0CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{5787C789-5439-41AA-9547-534E1E69163D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{122BA921-1679-4569-9001-A629CF4D6A00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daria.MIS.Core", "Daria.MIS.Core\Daria.MIS.Core.csproj", "{9090CC48-035E-4289-8A6E-2694DDA184A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daria.MIS.Infrastructure", "Daria.MIS.Infrastructure\Daria.MIS.Infrastructure.csproj", "{F25A971F-781C-4B62-B6F8-BA3E23FF1806}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EDE26772-6FE6-4EDE-AC63-F8F7131069BF}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daria.MIS.Utils", "Daria.MIS.Utils\Daria.MIS.Utils.csproj", "{651C7220-5628-49DE-A266-5FBFB4F2798F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Daria.MIS.UI.Web", "Daria.MIS.UI.Web\Daria.MIS.UI.Web.csproj", "{7B55AC88-563A-47A9-9B06-9C2926C6B7D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{3D110846-ED4C-4D0F-95AB-90286304108F}"
+	ProjectSection(SolutionItems) = preProject
+		StoredProcs.sql = StoredProcs.sql
+		Tables.sql = Tables.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9090CC48-035E-4289-8A6E-2694DDA184A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9090CC48-035E-4289-8A6E-2694DDA184A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9090CC48-035E-4289-8A6E-2694DDA184A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9090CC48-035E-4289-8A6E-2694DDA184A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25A971F-781C-4B62-B6F8-BA3E23FF1806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25A971F-781C-4B62-B6F8-BA3E23FF1806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25A971F-781C-4B62-B6F8-BA3E23FF1806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25A971F-781C-4B62-B6F8-BA3E23FF1806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{651C7220-5628-49DE-A266-5FBFB4F2798F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{651C7220-5628-49DE-A266-5FBFB4F2798F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{651C7220-5628-49DE-A266-5FBFB4F2798F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{651C7220-5628-49DE-A266-5FBFB4F2798F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B55AC88-563A-47A9-9B06-9C2926C6B7D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B55AC88-563A-47A9-9B06-9C2926C6B7D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B55AC88-563A-47A9-9B06-9C2926C6B7D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B55AC88-563A-47A9-9B06-9C2926C6B7D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9090CC48-035E-4289-8A6E-2694DDA184A7} = {B229B7A2-2BC8-4B55-9D53-E31AEB00F0CB}
+		{F25A971F-781C-4B62-B6F8-BA3E23FF1806} = {5787C789-5439-41AA-9547-534E1E69163D}
+		{651C7220-5628-49DE-A266-5FBFB4F2798F} = {5787C789-5439-41AA-9547-534E1E69163D}
+		{7B55AC88-563A-47A9-9B06-9C2926C6B7D4} = {122BA921-1679-4569-9001-A629CF4D6A00}
+	EndGlobalSection
+EndGlobal
